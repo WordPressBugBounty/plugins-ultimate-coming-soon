@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Ultimate Coming Soon & Maintenance 
  * Description: Coming Soon & Maintenance Mode Plugin For WordPress. Hide your website until it’s ready. 
- * Version: 1.0.8
+ * Version: 1.0.9
  * Author URI: http://rstheme.com
  * Plugin URI: https://wordpress.org/plugins/ultimate-coming-soon/
  * Author: RSTheme
@@ -17,7 +17,7 @@
 defined('ABSPATH') or die('Hey, what are you doing here? You silly human!');
 
 // Define Custom Constant Variables
-define('UCSM_VERSION_LITE', '1.0.8');
+define('UCSM_VERSION_LITE', '1.0.9');
 define('UCSM_PLUGIN_DIR_LITE', plugin_dir_path(__FILE__));
 define('UCSM_PLUGIN_URL_LITE', plugin_dir_url(__FILE__));
 define('UCSM_FILE_LITE', __FILE__);
@@ -47,9 +47,7 @@ function ucsm_custom_setting_page_links_lite($links) {
         sprintf("<a href='%s'>%s</a>", admin_url('admin.php?page=ucsm-general-settings-lite&tab=dashboard-lite'), __('Settings', 'ultimate-coming-soon')),
         sprintf("<a href='%s' target='_blank'>%s</a>", 'https://rstheme.com/support/', __('Support', 'ultimate-coming-soon')),
         sprintf("<a href='%s' target='_blank' style='color: #0052da; font-weight: 700;'>%s</a>", 'https://wpucs.com/', __('Go Pro', 'ultimate-coming-soon')),
-  
     );
-
     $links = array_merge($links, $settings_links);
     return $links;
 }
@@ -68,9 +66,44 @@ function ucsm_display_login_message_lite($message) {
         // Append custom message to the default login message
         $message .= $custom_message;
     }
-
     return $message;
 }
 add_filter('login_message', 'ucsm_display_login_message_lite');
 
+// Add admin notice in the dashboard
+function ucsm_admin_notice_lite() {
+     // Only show to administrators
+    if (!current_user_can('manage_options')) {
+        return;
+    }
 
+    // Check if we are on the WordPress dashboard page
+    $screen = get_current_screen();
+    if ($screen->base !== 'dashboard') {
+        return;
+    }
+    // Notice styling
+    ?>
+    <div class="notice notice-success is-dismissible" style="background: url('<?php echo UCSM_PLUGIN_URL_LITE . 'assets/img/admin-notice.png'; ?>') no-repeat center center / cover; color: #fff; padding: 20px; display: flex; align-items: center; justify-content: space-between;">
+    
+        <p style="margin: 0; font-size: 26px; line-height: 1.4;letter-spacing: 1px;font-weight: 700;">
+            <?php _e('Get Up To', 'ultimate-coming-soon'); ?>
+            <span style="color: #FF0000; font-weight: bold; padding-left: 5px; padding-right: 5px;"><?php _e('50% OFF', 'ultimate-coming-soon'); ?></span>
+            <?php _e('on The Premium WordPress Themes Collection on', 'ultimate-coming-soon'); ?>
+            <span style="color: #FF0000; font-weight: bold; padding-left: 5px;"><?php _e('Black Friday & Cyber Monday Deal!', 'ultimate-coming-soon'); ?></span>
+        </p>
+
+        <a href="https://rstheme.com/offers/" class="button ucsm-button" style="text-decoration: none; margin-right: 50px; background-color: #fff; color: #000; border-radius: 15px; font-weight: 600; font-size: 20px;">
+            <?php _e('Snag The Deals! ', 'ultimate-coming-soon'); ?>
+        </a>
+
+        <style>
+            .ucsm-button:hover {
+                background-color: #fff !important ;
+                color: #FF0000 !important;
+            }
+        </style>
+    </div>
+    <?php
+}
+add_action('admin_notices', 'ucsm_admin_notice_lite');

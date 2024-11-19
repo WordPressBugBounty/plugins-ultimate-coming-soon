@@ -1,7 +1,6 @@
 <?php if ( ! defined( 'ABSPATH' ) ) exit;
 
 	// Dashboard
-	
 	$ucsm_mode = get_option('ucsm_mode', '');
 	$wpucs_enable_mode = get_option('wpucs_enable_mode', false);
 	$wpucs_main_heading = get_option('wpucs_main_heading', '');

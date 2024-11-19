@@ -6,11 +6,11 @@
 **Author URI:** http://rstheme.com 
 **Contributors:** rstheme2017, rubrash
 **Tags:** maintenance mode, coming soon, landing page, under construction, countdown   
-**Version:** 1.0.8
+**Version:** 1.0.9
 **License:** GPLv2 or later
 **License URI:** http://www.gnu.org/licenses/gpl-2.0.html 
-**Stable tag:** 1.0.8
-**Tested up to:** 6.6.1
+**Stable tag:** 1.0.9
+**Tested up to:** 6.7
 **Requires PHP:** 7.0.0
 **Requires at least:** 5.5
 
@@ -249,6 +249,11 @@ Maintenance Mode: Inform users that your site is temporarily down for maintenanc
 
 ## Changelog ##
 
+= 1.0.9 14-11-2024 =
+
+* Compatible with your version of WordPress
+* Bug Fixes
+
 = 1.0.8 28-07-2024 =
 
 * Compatible with your version of WordPress
@@ -265,7 +270,6 @@ Maintenance Mode: Inform users that your site is temporarily down for maintenanc
 * Add Coming Soon and Maintenance Mode
 * Also add Redirect Mode
 * You can also chosse (Homepage only or Whole Website) show your Coming Soon Template
-
 
 = 1.0.6 09-05-2024 =
 
@@ -297,7 +301,6 @@ Maintenance Mode: Inform users that your site is temporarily down for maintenanc
 
 * Bug Fixes
 * Security Update
-
 
 = 1.0.2  07-03-2024 =
 
