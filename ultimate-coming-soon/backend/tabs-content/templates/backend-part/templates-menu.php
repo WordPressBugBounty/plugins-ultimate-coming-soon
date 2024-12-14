@@ -23,12 +23,10 @@ $proTemplateIds = array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 14, 15, 17, 18, 1
                 <input type="radio" id="filter-available" name="template-filter" value="available">
                 <label for="filter-available">
                     <div class="wpucs-dot-icon-pro"></div>
-                    <span><?php esc_html_e('Free Templates', 'ultimate-coming-soon'); ?>
-                    </span>
+                    <span><?php esc_html_e('Free Templates', 'ultimate-coming-soon'); ?></span>
                 </label>
             </div>
             <div class="wpucs-radio-item-lite">
-
                 <input type="radio" id="filter-pro" name="template-filter" value="pro">
                 <label for="filter-pro">
                     <div class="wpucs-dot-icon-pro"></div>
@@ -96,54 +94,64 @@ $proTemplateIds = array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 14, 15, 17, 18, 1
         const activateButtons = document.querySelectorAll('.button-active');
         const proButtons = document.querySelectorAll('.button-pro');
 
+        // Handle template activation
         activateButtons.forEach(button => {
             button.addEventListener('click', function(event) {
                 event.preventDefault();
                 const templateId = button.getAttribute('data-template');
                 const clickedTemplateName = button.getAttribute('data-template-name');
-                if (templateId) {
-                    const activationUrl = <?php echo wp_json_encode(admin_url('admin-ajax.php')); ?> +
-                        '?action=activate_template&templateId=' + templateId;
+                const nonce = '<?php echo esc_js(wp_create_nonce('activate_template_nonce')); ?>'; // Escape the nonce output
 
-                    fetch(activationUrl)
-                        .then(response => response.json())
-                        .then(data => {
-                            if (data.success) {
-                                activateButtons.forEach(btn => {
-                                    btn.classList.remove('active');
-                                    btn.style.display = 'inline-block';
-                                    const templateItem = btn.closest('.ucsm-template-grid-lite-item');
-                                    const settingsButton = templateItem.querySelector('.button-settings');
-                                    if (settingsButton) {
-                                        settingsButton.style.display = 'none'; // Hide the Settings button
-                                    }
-                                });
-                                button.classList.add('active');
-                                button.style.display = 'none';
-                                // Change the page's URL and reload it
-                                const newURL = '?page=ucsm-general-settings-lite&tab=templates-lite';
-                                window.location.href = newURL;
-
-                                const templateItem = button.closest('.ucsm-template-grid-lite-item');
-                                const settingsButton = templateItem.querySelector('.button-settings');
-                                if (settingsButton) {
-                                    settingsButton.style.display = 'inline-block'; // Show the Settings button
-                                }
-                                alert(data.data);
-                                localStorage.setItem('activated_template', templateId);
-                                localStorage.setItem('settings_button_visible', 'true'); // Store the state of the Settings button visibility
-                                // Update the template name in the database
-                                if (clickedTemplateName) {
-                                    updateTemplateName(templateId, clickedTemplateName);
-                                }
-                            } else {
-                                alert(data.data);
-                            }
-                        })
-                        .catch(error => {
-                            console.error('Error:', error);
-                        });
+                if (!templateId || !clickedTemplateName || !nonce) {
+                    alert('Template ID or nonce verification failed.');
+                    return;
                 }
+
+                const activationUrl = <?php echo wp_json_encode(admin_url('admin-ajax.php')); ?> +
+                    '?action=activate_template&templateId=' + templateId + '&_wpnonce=' + nonce;
+
+                fetch(activationUrl, {
+                    method: 'GET',
+                    headers: {
+                        'X-WP-Nonce': nonce
+                    }
+                })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        activateButtons.forEach(btn => {
+                            btn.classList.remove('active');
+                            btn.style.display = 'inline-block';
+                            const templateItem = btn.closest('.ucsm-template-grid-lite-item');
+                            const settingsButton = templateItem.querySelector('.button-settings');
+                            if (settingsButton) {
+                                settingsButton.style.display = 'none'; // Hide the Settings button
+                            }
+                        });
+                        button.classList.add('active');
+                        button.style.display = 'none';
+                        const newURL = '?page=ucsm-general-settings-lite&tab=templates-lite';
+                        window.location.href = newURL;
+
+                        const templateItem = button.closest('.ucsm-template-grid-lite-item');
+                        const settingsButton = templateItem.querySelector('.button-settings');
+                        if (settingsButton) {
+                            settingsButton.style.display = 'inline-block'; // Show the Settings button
+                        }
+                        alert(data.data);
+                        localStorage.setItem('activated_template', templateId);
+                        localStorage.setItem('settings_button_visible', 'true'); // Store the state of the Settings button visibility
+
+                        // Update the template name in the database
+                        updateTemplateName(templateId, clickedTemplateName);
+                    } else {
+                        alert(data.data);
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('An error occurred while trying to activate the template.');
+                });
             });
         });
 
@@ -157,11 +165,7 @@ $proTemplateIds = array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 14, 15, 17, 18, 1
                 const settingsButton = templateItem.querySelector('.button-settings');
                 if (settingsButton) {
                     const settingsButtonVisible = localStorage.getItem('settings_button_visible');
-                    if (settingsButtonVisible === 'true') {
-                        settingsButton.style.display = 'inline-block'; // Show the Settings button for previously activated template
-                    } else {
-                        settingsButton.style.display = 'none'; // Hide the Settings button for previously activated template
-                    }
+                    settingsButton.style.display = settingsButtonVisible === 'true' ? 'inline-block' : 'none';
                 }
             }
         }
@@ -169,79 +173,42 @@ $proTemplateIds = array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 14, 15, 17, 18, 1
         // Function to update template name using AJAX
         function updateTemplateName(templateId, templateName) {
             const updateTemplateNameUrl = <?php echo wp_json_encode(admin_url('admin-ajax.php')); ?> +
-                '?action=update_template_name&templateId=' + templateId + '&templateName=' + encodeURIComponent(templateName);
+                '?action=update_template_name&templateId=' + templateId + '&templateName=' + encodeURIComponent(templateName) + '&_wpnonce=' + '<?php echo esc_js(wp_create_nonce('update_template_name_nonce')); ?>';
 
-            fetch(updateTemplateNameUrl)
-                .then(response => response.json())
-                .then(data => {
-                    if (data.success) {
-                        // Handle successful update if needed
-                    } else {
-                        // Handle update failure if needed
-                    }
-                })
-                .catch(error => {
-                    console.error('Error:', error);
-                });
+            fetch(updateTemplateNameUrl, {
+                method: 'GET',
+                headers: {
+                    'X-WP-Nonce': '<?php echo esc_js(wp_create_nonce('update_template_name_nonce')); ?>' // Escape the nonce output
+                }
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    console.log('Template name updated successfully.');
+                } else {
+                    console.error('Failed to update template name:', data.data);
+                }
+            })
+            .catch(error => {
+                console.error('Error updating template name:', error);
+            });
         }
 
-        const modal = document.getElementById('template-modal');
-        const modalContent = document.querySelector('.modal-content-lite');
-        const modalImage = document.getElementById('modal-image');
-        const closeBtn = document.querySelector('.close');
+        // Handle template preview
         const previewButtons = document.querySelectorAll('.button-preview');
-
-        let scale = .5;
-        let zoomedPixelX = 0;
-        let zoomedPixelY = 0;
-        let zoomEnabled = true;
+        const modal = document.getElementById('template-modal');
+        const closeModal = modal.querySelector('.close');
+        const modalImage = document.getElementById('modal-image');
 
         previewButtons.forEach(button => {
-            button.addEventListener('click', function(event) {
-                event.preventDefault();
-                const imageUrl = button.getAttribute('data-image');
-                modalImage.src = imageUrl;
-                scale = 1;
-                zoomedPixelX = 0;
-                zoomedPixelY = 0;
-                zoomEnabled = true; // Enable zoom on image open
-                updateImageScale();
+            button.addEventListener('click', function() {
+                const imageSrc = button.getAttribute('data-image');
+                modalImage.src = imageSrc;
                 modal.style.display = 'block';
             });
         });
 
-        function updateImageScale() {
-            modalImage.style.transform = `scale(${scale})`;
-            modalImage.style.transformOrigin = `${zoomedPixelX}px ${zoomedPixelY}px`;
-            modalImage.style.transform += ` translate(${-(zoomedPixelX * scale - zoomedPixelX)}px, ${-(zoomedPixelY * scale - zoomedPixelY)}px)`;
-        }
-
-        modalContent.addEventListener('wheel', function(event) {
-            if (!zoomEnabled) return;
-            event.preventDefault();
-            if (event.deltaY < 0) {
-                scale += 0.0; // Zoom in
-            } else {
-                scale -= -0.0; // Zoom out, with minimum scale limit
-            }
-            zoomEnabled = false; // Disable zoom after the first interaction
-            updateImageScale();
-        });
-
-        modalImage.addEventListener('click', function(event) {
-            if (!zoomEnabled) return;
-            const imageRect = modalImage.getBoundingClientRect();
-            const offsetX = event.clientX - imageRect.left;
-            const offsetY = event.clientY - imageRect.top;
-
-            zoomedPixelX = offsetX / scale;
-            zoomedPixelY = offsetY / scale;
-
-            zoomEnabled = false; // Disable zoom after the first interaction
-            updateImageScale();
-        });
-
-        closeBtn.addEventListener('click', function() {
+        closeModal.addEventListener('click', function() {
             modal.style.display = 'none';
         });
 
@@ -250,32 +217,5 @@ $proTemplateIds = array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 14, 15, 17, 18, 1
                 modal.style.display = 'none';
             }
         });
-
-        // Filtering logic
-        const filterAll = document.getElementById('filter-all');
-        const filterAvailable = document.getElementById('filter-available');
-        const filterPro = document.getElementById('filter-pro');
-        const templateItems = document.querySelectorAll('.ucsm-template-grid-lite-item');
-
-        function filterTemplates() {
-            const filterValue = document.querySelector('input[name="template-filter"]:checked').value;
-            templateItems.forEach(item => {
-                const isActive = item.classList.contains('active');
-                const isPro = item.classList.contains('pro');
-                if (filterValue === 'all') {
-                    item.style.display = 'block';
-                } else if (filterValue === 'available') {
-                    item.style.display = !isPro ? 'block' : 'none';
-                } else if (filterValue === 'pro') {
-                    item.style.display = isPro ? 'block' : 'none';
-                }
-            });
-        }
-
-        filterAll.addEventListener('change', filterTemplates);
-        filterAvailable.addEventListener('change', filterTemplates);
-        filterPro.addEventListener('change', filterTemplates);
-
-        filterTemplates(); // Initial call to set the correct filter state on page load
     });
 </script>

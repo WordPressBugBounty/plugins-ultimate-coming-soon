@@ -1,6 +1,6 @@
 <?php if ( ! defined( 'ABSPATH' ) ) exit;
 function ucsm_wp_script_lite(){
-	if (isset($_GET['page']) && ($_GET['page'] === 'ucsm-general-settings-lite' )){
+	if (isset($_GET['page']) && ($_GET['page'] === 'ucsm-general-settings-lite'  || $_GET['page'] === 'wpucs-advanced-settings-lite' )){
     
 	wp_enqueue_media();
     wp_enqueue_style('wp-color-picker');
@@ -28,10 +28,10 @@ function ucsm_wp_script_lite(){
     wp_enqueue_script('wp-color-picker-alpha', UCSM_PLUGIN_URL_LITE . 'assets/js/spectrum.min.js', array('wp-color-picker'), '1.8.0', true);
     wp_enqueue_script('ucsm-admin-script', UCSM_PLUGIN_URL_LITE . 'assets/js/wpucs-admin-script.js', array('jquery'), UCSM_VERSION_LITE, true);
 
-    wp_enqueue_style('select2-css', UCSM_PLUGIN_URL_LITE. 'assets/css/select2.min.css');
+    wp_enqueue_style('select2-css', UCSM_PLUGIN_URL_LITE. 'assets/css/select2.min.css',array(),'4.1.0');
 
-	wp_enqueue_script('select2-js',  UCSM_PLUGIN_URL_LITE . 'assets/js/select2.min.js', array('jquery'), null, true);
-	wp_enqueue_script('sortable-js',  UCSM_PLUGIN_URL_LITE . 'assets/js/sortable.min.js', array('jquery'), null, true);
+	wp_enqueue_script('select2-js',  UCSM_PLUGIN_URL_LITE . 'assets/js/select2.min.js', array('jquery'), '4.1.0', true);
+	wp_enqueue_script('sortable-js',  UCSM_PLUGIN_URL_LITE . 'assets/js/sortable.min.js', array('jquery'), '1.15.2', true);
 	
 	}
 }

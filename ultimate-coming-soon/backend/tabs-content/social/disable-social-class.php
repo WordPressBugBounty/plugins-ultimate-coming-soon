@@ -75,7 +75,7 @@
 <div class="wpucs-lite-disable modal-trigger" data-modal="customModal26">    
     <fieldset style="margin-top: 30px; margin-bottom: 30px; padding-bottom: 0;" disabled>
         <legend><?php esc_html_e('Colors', 'ultimate-coming-soon'); ?><span class="wpucs_pro_feature_label">
-                (<?php esc_html_e('Pro', 'rscsm'); ?>)</span></legend>
+                (<?php esc_html_e('Pro', 'ultimate-coming-soon'); ?>)</span></legend>
         <div class="row wpucs-opacity" >
             <!--========= Icon =========-->
             <div class="col-lg-4">
@@ -126,7 +126,7 @@
             <!--========= Icon Hover=========-->
             <div class="col-lg-4">
                 <div class="wpucs-color-box-lite">
-                    <label for="wpucs_social_icon_hover_color"><?php esc_html_e('Icon Hover:', 'ultimate-coming-soon-pro'); ?></label>
+                    <label for="wpucs_social_icon_hover_color"><?php esc_html_e('Icon Hover:', 'ultimate-coming-soon'); ?></label>
                     <div class="wpucs-color-item-lite">
                         <input type="text" class="wp-color-picker" id="wpucs_social_icon_hover_color"
                             name="wpucs_social_icon_hover_color" value="#FFF">

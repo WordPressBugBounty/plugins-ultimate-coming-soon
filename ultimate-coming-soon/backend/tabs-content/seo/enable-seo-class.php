@@ -34,21 +34,6 @@
         </div>
         <!--========= End Meta Keywords =========-->
 
-        <!--========= Meta Keywords =========-->
-        <div class="col-lg-12">
-            <p>
-                <label for="wpucs_google_analytics"><?php esc_html_e('Google Analytics:', 'ultimate-coming-soon'); ?></label>
-                <span class="wpucs-hint-lite">*
-                    <?php esc_html_e('Give your Google Analytics Tag ID:', 'ultimate-coming-soon'); ?></span>
-                <input type="text" id="wpucs_google_analytics" name="wpucs_google_analytics" 
-                       value="<?php echo esc_attr($wpucs_google_analytics); ?>" 
-                       placeholder="G-XXXXXXXXXX" style="margin-top: 5px;">
-            </p>
-
-              
-        </div>
-        <!--========= End Meta Keywords =========-->
-
         <!--========= Meta Image =========-->
         <div class="col-lg-12">
             <div class="wpucs-image-box-lite">

@@ -108,6 +108,16 @@ function ucsm_wp_menu_lite() {
         'wpucs_translation_settings_page_lite' // Callback function for the page
     );
 
+    // Add the " Settings" submenu
+    add_submenu_page(
+        $parent_slug, // Parent slug
+        __('Advanced Settings', 'ultimate-coming-soon'),      // Page title
+        __('Advanced Settings', 'ultimate-coming-soon'),      // Menu title
+        'manage_options',                 // Capability required to access the page
+        'wpucs-advanced-settings-lite', // Menu slug
+        'wpucs_advanced_settings_page_lite' // Callback function for the page
+    );
+
 
     // Added hook to add styles and scripts for the "WP Ultimate Coming Soon" admin page
     add_action('admin_enqueue_scripts', 'ucsm_wp_script_lite');

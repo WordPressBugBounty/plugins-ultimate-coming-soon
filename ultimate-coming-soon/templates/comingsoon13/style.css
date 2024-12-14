@@ -231,7 +231,6 @@ body {
     text-decoration: none;
     color: #fff;
     display: inline-flex;
-    align-items: center;
     gap:10px;
 }
 .ucsm-contact-info-lite ul li a p{

@@ -1,7 +1,19 @@
 <?php if ( ! defined( 'ABSPATH' ) ) exit;
     require_once UCSM_PLUGIN_DIR_LITE .'backend/essential-variables.php';
     // Get the plugin version
-    $plugin_version = defined('UCSM_VERSION_LITE') ? UCSM_VERSION_LITE : '1.0.0';
+    // Enqueue styles and scripts
+    add_action('wp_enqueue_scripts', 'ucsm_enqueue_assets');
+
+    function ucsm_enqueue_assets() {
+        $plugin_version = defined('UCSM_VERSION_LITE') ? UCSM_VERSION_LITE : '1.0.0';
+        $plugin_url = trailingslashit(UCSM_PLUGIN_URL_LITE);
+
+        // Enqueue styles
+        wp_enqueue_style('ucsm-style', $plugin_url . 'templates/comingsoon0/style.css', array(), $plugin_version);
+        wp_enqueue_style('ucsm-font-family', $plugin_url . 'assets/css/wpucs_font_family_frontend.css', array(), $plugin_version);
+        wp_enqueue_style('ucsm-remixicon', $plugin_url . 'assets/css/remixicon.css', array(), $plugin_version);
+    }
+
     $social_links = get_option('wpucs_social_links', array());
     $social_links_order = get_option('wpucs_social_links_order', array());
 
@@ -44,46 +56,34 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <?php if (!empty($wpucs_seo_title)): ?><!-- Meta Title -->
+    <?php if (!empty($wpucs_seo_title)): ?>
     <meta property="og:title" content="<?php echo wp_kses_post($wpucs_seo_title); ?>" />
     <?php endif; ?>
-    
-    <?php if (!empty($wpucs_seo_description)): ?><!-- Meta Description -->
-    <meta property="og:description" content="<?php echo wp_kses_post($wpucs_seo_description); ?>" >
+
+    <?php if (!empty($wpucs_seo_description)): ?>
+    <meta property="og:description" content="<?php echo wp_kses_post($wpucs_seo_description); ?>">
     <meta name="description" content="<?php echo wp_kses_post($wpucs_seo_description); ?>">   
     <?php endif; ?>
 
-    <?php if (!empty($wpucs_favicon)): ?><!-- Thumbnail -->
+    <?php if (!empty($wpucs_favicon)): ?>
     <meta name="thumbnail" content="<?php echo esc_url($wpucs_favicon); ?>">
     <?php endif; ?>
-    
-    <?php if (!empty($wpucs_seo_img)): ?><!-- Meta Image -->
+
+    <?php if (!empty($wpucs_seo_img)): ?>
     <meta property="og:image" content="<?php echo esc_url($wpucs_seo_img); ?>">
     <?php endif; ?>
 
-    <?php if (!empty($wpucs_seo_meta_keywords)): ?><!-- Meta KeyWords -->
+    <?php if (!empty($wpucs_seo_meta_keywords)): ?>
     <meta name="keywords" content="<?php echo wp_kses_post($wpucs_seo_meta_keywords); ?>">
     <?php endif; ?>
 
-    <?php if ($ucsm_mode === 'maintenance') : ?><!-- Maintenance Mode Meta Robots -->
+    <?php if ($ucsm_mode === 'maintenance') : ?>
     <meta name="robots" content="noindex, nofollow">
     <?php endif; ?>
 
-    <!-- Including scripts and styles added by plugins -->
-    <link rel="stylesheet" href="<?php echo esc_url(UCSM_PLUGIN_URL_LITE . 'templates/comingsoon0/style.css?v=' . esc_attr($plugin_version)); ?>" /> 
-    <link rel="stylesheet" href="<?php echo esc_url(UCSM_PLUGIN_URL_LITE.'assets/css/wpucs_font_family_frontend.css?v=' . esc_attr($plugin_version)); ?>" />  
-    <link rel="stylesheet" href="<?php echo UCSM_PLUGIN_URL_LITE.'assets/css/remixicon.css'; ?>" />
-
-    <?php if (!empty($wpucs_google_analytics)): ?><!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=<?php echo htmlspecialchars($wpucs_google_analytics); ?>"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-        gtag('config', '<?php echo htmlspecialchars($wpucs_google_analytics); ?>');
-    </script>
-    <?php endif; ?>
+    <?php wp_head(); ?>
 </head>
+
 <!-- End Head -->
 <!-- Body -->
 

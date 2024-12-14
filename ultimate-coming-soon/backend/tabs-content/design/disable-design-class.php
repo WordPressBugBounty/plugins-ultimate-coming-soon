@@ -143,7 +143,7 @@
                         <span id="wpucs_main_sub_heading_letter_spacing_value"></span>
                     </label>
                     <input type="range" id="wpucs_main_sub_heading_letter_spacing" name="wpucs_main_sub_heading_letter_spacing"
-                        value="<?php echo esc_attr($wpucs_main_sub_heading_letter_spacing); ?>" min="0" max="10" step="0.1">
+                         min="0" max="10" step="0.1">
                 </p>
             </div>
         </div>

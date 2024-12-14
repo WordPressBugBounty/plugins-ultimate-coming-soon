@@ -1,60 +1,55 @@
 <?php if ( ! defined( 'ABSPATH' ) ) exit;
 
-function ucsm_display_page_lite() {
-    global $wp;
-
+function wpucs_display_page_lite() {
     $wpucs_enable_mode = get_option('wpucs_enable_mode', '');
-    $ucsm_mode = get_option('ucsm_mode', '');
-    $ucsm_page_setup = get_option('ucsm_page_setup', 'whole-website'); // Default to 'whole-website' if not set
+    $wpucs_administrator = get_option('wpucs_administrator', '');
+    $wpucs_editor = get_option('wpucs_editor', '');
+    $wpucs_author = get_option('wpucs_author', '');
+    $wpucs_contributor = get_option('wpucs_contributor', '');
+    $wpucs_subscriber = get_option('wpucs_subscriber', '');
 
-    if ($wpucs_enable_mode && !current_user_can('manage_options')) {
-        // Check if it's 'whole-website' mode
-        if ($ucsm_page_setup === 'whole-website' && ($ucsm_mode === 'maintenance' || $ucsm_mode === 'coming_soon')) {
-            $activated_template_id = get_option('activated_template_id', false);
-            $template_dir = UCSM_PLUGIN_DIR_LITE . 'templates/comingsoon';
+    $is_user_allowed = false;
 
-            if ($activated_template_id) {
-                $template_file = $template_dir . $activated_template_id . '/index.php';
-
-                if (file_exists($template_file)) {
-                    include($template_file);
-                    exit();
-                }
-            } else {
-                $default_template_file = $template_dir . '0/index.php';
-
-                if (file_exists($default_template_file)) {
-                    include($default_template_file);
-                    exit();
-                }
-            }
+    if ($wpucs_enable_mode) {
+        $current_user = wp_get_current_user();
+        if ($wpucs_contributor === 'on' && in_array('contributor', $current_user->roles)) {
+            $is_user_allowed = true;
         }
+        if ($wpucs_editor === 'on' && in_array('editor', $current_user->roles)) {
+            $is_user_allowed = true;
+        }
+        if ($wpucs_author === 'on' && in_array('author', $current_user->roles)) {
+            $is_user_allowed = true;
+        }
+        if ($wpucs_administrator === 'on' && in_array('administrator', $current_user->roles)) {
+            $is_user_allowed = true;
+        }
+        if ($wpucs_subscriber === 'on' && in_array('subscriber', $current_user->roles)) {
+            $is_user_allowed = true;
+        }
+    }
 
-        // Check if it's 'homepage' mode
-        if ($ucsm_page_setup === 'homepage' && is_front_page() && ($ucsm_mode === 'maintenance' || $ucsm_mode === 'coming_soon')) {
-            $activated_template_id = get_option('activated_template_id', false);
-            $template_dir = UCSM_PLUGIN_DIR_LITE . 'templates/comingsoon';
+    if (($is_user_allowed || ($wpucs_enable_mode && !current_user_can('manage_options')))) {
+        $activated_template_id = get_option('activated_template_id', false);
 
-            if ($activated_template_id) {
-                $template_file = $template_dir . $activated_template_id . '/index.php';
+        if ($activated_template_id) {
+            $template_file = UCSM_PLUGIN_DIR_LITE . 'templates/comingsoon' . $activated_template_id . '/index.php';
 
-                if (file_exists($template_file)) {
-                    include($template_file);
-                    exit();
-                }
-            } else {
-                $default_template_file = $template_dir . '0/index.php';
+            if (file_exists($template_file)) {
+                include($template_file);
+                exit();
+            }
+        } else {
+            $default_template_file = UCSM_PLUGIN_DIR_LITE . 'templates/comingsoon0/index.php';
 
-                if (file_exists($default_template_file)) {
-                    include($default_template_file);
-                    exit();
-                }
+            if (file_exists($default_template_file)) {
+                include($default_template_file);
+                exit();
             }
         }
     }
 }
-
-add_action('template_redirect', 'ucsm_display_page_lite');
+add_action('template_redirect', 'wpucs_display_page_lite');
 
 function ucsm_display_page_lite_PRO() {
     global $wp;
@@ -99,12 +94,11 @@ function safe_redirect($url, $status = 302) {
     exit();
 }
 
-
-
 // Active individual template
 function ucsm_activate_lite_template_lite() {
-    if (isset($_GET['templateId'])) {
-        $templateId = $_GET['templateId'];
+    // Check if nonce is set and valid
+    if (isset($_GET['templateId']) && check_ajax_referer('activate_template_nonce', 'nonce', false)) {
+        $templateId = sanitize_key($_GET['templateId']);
 
         // Retrieve the template data
         include UCSM_PLUGIN_DIR_LITE . 'backend/tabs-content/templates/backend-part/templates-data.php';
@@ -128,24 +122,39 @@ function ucsm_activate_lite_template_lite() {
             wp_send_json_error('Template ID not found');
         }
     } else {
-        // Send an error response if templateId is not set
-        wp_send_json_error('Template ID is missing');
+        // Send an error response if templateId is missing or nonce verification fails
+        wp_send_json_error('Template ID is missing or nonce verification failed');
     }
 }
 add_action('wp_ajax_activate_template', 'ucsm_activate_lite_template_lite');
 add_action('wp_ajax_nopriv_activate_template', 'ucsm_activate_lite_template_lite'); // For non-logged-in users
 
-// Update Template Name function
 function ucsm_update_template_name_lite() {
-    if (isset($_GET['templateId']) && isset($_GET['templateName'])) {
-        $templateId = $_GET['templateId'];
-        $templateName = sanitize_text_field($_GET['templateName']);
+    // Check if the nonce is valid
+    check_ajax_referer('update_template_name_nonce', '_wpnonce');
+    
+    // Verify user permissions (e.g., allow only administrators)
+    if (!current_user_can('manage_options')) {
+        wp_send_json_error(array('message' => __('You do not have permission to perform this action.', 'ultimate-coming-soon')));
+        wp_die();
+    }
 
-        update_option('template_name_' . $templateId, $templateName);
+    // Check if required parameters are set
+    if (isset($_POST['templateId']) && isset($_POST['templateName'])) {
+        // Sanitize inputs
+        $templateId = sanitize_key(wp_unslash($_POST['templateId']));
+        $templateName = sanitize_text_field(wp_unslash($_POST['templateName']));
 
-        wp_send_json_success();
+        // Update the template name option securely
+        $option_key = 'template_name_' . $templateId;
+        update_option($option_key, $templateName);
+
+        // Send success response
+        wp_send_json_success(array('message' => __('Template name updated successfully.', 'ultimate-coming-soon')));
     } else {
-        wp_send_json_error();
+        // Send error response if inputs are missing
+        wp_send_json_error(array('message' => __('Failed to update template name. Missing required data.', 'ultimate-coming-soon')));
     }
 }
 add_action('wp_ajax_update_template_name', 'ucsm_update_template_name_lite');
+

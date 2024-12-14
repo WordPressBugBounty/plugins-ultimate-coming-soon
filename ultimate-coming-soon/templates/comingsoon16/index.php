@@ -1,8 +1,19 @@
 <?php
     if ( ! defined( 'ABSPATH' ) ) exit;
     require_once UCSM_PLUGIN_DIR_LITE .'backend/essential-variables.php';
-    // Get the plugin version
-    $plugin_version = defined('UCSM_VERSION_LITE') ? UCSM_VERSION_LITE : '1.0.0';
+    
+    // Enqueue styles and scripts
+    add_action('wp_enqueue_scripts', 'ucsm_enqueue_assets');
+
+    function ucsm_enqueue_assets() {
+        $plugin_version = defined('UCSM_VERSION_LITE') ? UCSM_VERSION_LITE : '1.0.0';
+        $plugin_url = trailingslashit(UCSM_PLUGIN_URL_LITE);
+
+        // Enqueue styles
+        wp_enqueue_style('ucsm-style', $plugin_url . 'templates/comingsoon16/style.css', array(), $plugin_version);
+        wp_enqueue_style('ucsm-font-family', $plugin_url . 'assets/css/wpucs_font_family_frontend.css', array(), $plugin_version);
+        wp_enqueue_style('ucsm-remixicon', $plugin_url . 'assets/css/remixicon.css', array(), $plugin_version);
+    }
     $social_links = get_option('wpucs_social_links', array());
     $social_links_order = get_option('wpucs_social_links_order', array());
 
@@ -70,21 +81,8 @@
         <meta name="robots" content="noindex, nofollow">
         <?php endif; ?>
 
+        <?php wp_head(); ?>
 
-        <!-- Including scripts and styles added by plugins -->
-        <link rel="stylesheet" href="<?php echo esc_url(UCSM_PLUGIN_URL_LITE . 'templates/comingsoon16/style.css?v=' . esc_attr($plugin_version)); ?>" /> 
-        <link rel="stylesheet" href="<?php echo esc_url(UCSM_PLUGIN_URL_LITE.'assets/css/wpucs_font_family_frontend.css?v=' . esc_attr($plugin_version)); ?>" />  
-        <link rel="stylesheet" href="<?php echo UCSM_PLUGIN_URL_LITE.'assets/css/remixicon.css'; ?>" />
-
-        <?php if (!empty($wpucs_google_analytics)): ?><!-- Google Analytics -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=<?php echo htmlspecialchars($wpucs_google_analytics); ?>"></script>
-        <script>
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', '<?php echo htmlspecialchars($wpucs_google_analytics); ?>');
-        </script>
-        <?php endif; ?>
     </head>
     <!-- End Head -->
 

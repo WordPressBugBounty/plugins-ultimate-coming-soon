@@ -46,5 +46,11 @@ function wpucs_templates_settings_page_lite(){
 function wpucs_translation_settings_page_lite(){  
     
 }
+// Advanced Settings CallBack Functions
+function wpucs_advanced_settings_page_lite(){  
+    
+require_once UCSM_PLUGIN_DIR_LITE . 'backend/advancedSettings/advanced-settings-content.php';
+    
+}
 
 ?>
