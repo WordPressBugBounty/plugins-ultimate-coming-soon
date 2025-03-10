@@ -166,7 +166,7 @@ ucsm_save_activated_template_id_lite($activatedTemplateId);
         <?php
           // Update the options for the 'countdown_timer' tab here
           update_option('wpucs_countdown_timer_status', 'on');
-          update_option('wpucs_countdown_date', '2024-12-31T12:00');
+          update_option('wpucs_countdown_date', '2025-12-31T12:00');
       }
 
       // Function to reset options for the 'Newsletter' tab

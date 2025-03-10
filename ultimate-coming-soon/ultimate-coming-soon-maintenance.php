@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Ultimate Coming Soon & Maintenance 
  * Description: Coming Soon & Maintenance Mode Plugin For WordPress. Hide your website until it’s ready. 
- * Version: 1.1.0
+ * Version: 1.1.1
  * Author URI: http://rstheme.com
  * Plugin URI: https://wordpress.org/plugins/ultimate-coming-soon/
  * Author: RSTheme
@@ -17,7 +17,7 @@
 defined('ABSPATH') or die('Hey, what are you doing here? You silly human!');
 
 // Define Custom Constant Variables
-define('UCSM_VERSION_LITE', '1.1.0');
+define('UCSM_VERSION_LITE', '1.1.1');
 define('UCSM_PLUGIN_DIR_LITE', plugin_dir_path(__FILE__));
 define('UCSM_PLUGIN_URL_LITE', plugin_dir_url(__FILE__));
 define('UCSM_FILE_LITE', __FILE__);
@@ -61,7 +61,7 @@ function ucsm_display_login_message_lite($message) {
     
     if ($wpucs_enable_mode == 1) {
         // Add your custom message
-        $custom_message = '<p class="message">' . __('Ultimate Coming Soon & Maintenance Mode is ON.', 'ultimate-coming-soon') . '</p>';
+        $custom_message = '<p class="message">' . esc_html_e('Ultimate Coming Soon & Maintenance Mode is ON.', 'ultimate-coming-soon') . '</p>';
         
         // Append custom message to the default login message
         $message .= $custom_message;
@@ -69,3 +69,44 @@ function ucsm_display_login_message_lite($message) {
     return $message;
 }
 add_filter('login_message', 'ucsm_display_login_message_lite');
+
+// Add admin notice in the dashboard
+function ucsm_admin_notice_lite() {
+    // Only show to administrators
+    if (!current_user_can('manage_options')) {
+        return;
+    }
+
+    // Check if we are on the WordPress dashboard page
+    $screen = get_current_screen();
+    if ($screen->base !== 'dashboard') {
+        return;
+    }
+    ?>
+    <div class="ucsm-admin-notice notice notice-success is-dismissible">
+        <p>
+            <?php esc_html_e('Get up to', 'ultimate-coming-soon'); ?>
+            <span class="ucsm-highlight"><?php esc_html_e('50% discount', 'ultimate-coming-soon'); ?></span>
+            <?php esc_html_e('on 100+ trending premium WordPress Themes.', 'ultimate-coming-soon'); ?>
+        </p>
+
+        <a href="https://rstheme.com/" class="ultimate-coming-soon-button">
+            <?php esc_html_e('Discover Themes Now', 'ultimate-coming-soon'); ?>
+        </a>
+    </div>
+    <?php
+}
+add_action('admin_notices', 'ucsm_admin_notice_lite');
+
+// Enqueue custom styles for the admin notice
+function ucsm_enqueue_admin_main_styles($hook) {
+    // Only load on the Dashboard
+    if ($hook !== 'index.php') {
+        return;
+    }
+    
+    // Enqueue custom admin notice styles
+    wp_enqueue_style('ucsm-admin-notice-style', UCSM_PLUGIN_URL_LITE . 'assets/css/admin-notice.css', array(), '1.1.1', 'all');
+    wp_enqueue_style('ucsm-font-family', UCSM_PLUGIN_URL_LITE . 'assets/css/wpucs_font_family_frontend.css', array(), '1.1.1');
+}
+add_action('admin_enqueue_scripts', 'ucsm_enqueue_admin_main_styles');

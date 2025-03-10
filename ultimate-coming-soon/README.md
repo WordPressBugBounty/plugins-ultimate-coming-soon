@@ -6,11 +6,11 @@
 **Author URI:** http://rstheme.com 
 **Contributors:** rstheme2017, rubrash
 **Tags:** maintenance mode, coming soon, landing page, under construction, countdown   
-**Version:** 1.1.0
+**Version:** 1.1.1
 **License:** GPLv2 or later
 **License URI:** http://www.gnu.org/licenses/gpl-2.0.html 
-**Stable tag:** 1.1.0
-**Tested up to:** 6.7.1
+**Stable tag:** 1.1.1
+**Tested up to:** 6.7.2
 **Requires PHP:** 7.0.0
 **Requires at least:** 5.5
 
@@ -23,6 +23,8 @@ Best Coming Soon, Under Construction, Maintenance Mode, and Landing Page for you
 Are you making updates to your current website & under construction, or launching a new one? There's nowhere else to look! With the Ultimate Coming Soon & Maintenance plugin, you can easily create a polished and visually appealing page that informs visitors of your ongoing work while you're working on other projects. To let readers know that your blog is unavailable for maintenance & under construction. Create a landing page for an already-existing website, add a coming soon page for a new website, or add a maintenance page. The entire content and front end of the blog are accessible to a user who possesses administrator rights.
 
 After you activate the plugin, your website is operational, in maintenance mode or under construction mode, and only authorized users can access the front end. For visitor information, you can either set a value and unit or use a date with a countdown timer.
+
+**Learn Link:** [__How to use Coming Soon mode on WordPress?__](https://rstheme.com/how-to-use-coming-soon-mode-on-wordpress/) 
 
 [youtube https://www.youtube.com/watch?v=1oYpLwYbx74&ab_channel=RSTheme ]
 
@@ -248,6 +250,12 @@ Maintenance Mode: Inform users that your site is temporarily down for maintenanc
 
 
 ## Changelog ##
+
+= 1.1.1 18-02-2025 =
+
+* Compatible with your version of WordPress
+* Ads update
+* Countdown Date Updated
 
 = 1.1.0 12-12-2024 =
 
