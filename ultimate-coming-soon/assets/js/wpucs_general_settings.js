@@ -152,6 +152,24 @@ document.addEventListener('DOMContentLoaded', function () {
             countdownDateWrapper.style.display = 'none';
         }
     }
+    
+    document.addEventListener('DOMContentLoaded', function () {
+        toggleCountdownMessage(); // Initial call to set the correct display based on the initial radio button value
+    });
+
+    function toggleCountdownMessage() {
+        var countdownDateWrapper = document.querySelector('.wpucs-countdown-message-wrapper');
+        var countdownStatus = '<?php echo wpucs_countdown_message_status; ?>';
+
+        var countdownStatusOn = (countdownStatus === 'on') ||
+            document.getElementById('wpucs_countdown_timer_message_enable').checked;
+
+        if (countdownStatusOn) {
+            countdownDateWrapper.style.display = 'block';
+        } else {
+            countdownDateWrapper.style.display = 'none';
+        }
+    }
 document.addEventListener('DOMContentLoaded', function() {
     var socialLinksContainer = document.getElementById('social_links_container');
     var orderInput = document.getElementById('social_links_order');

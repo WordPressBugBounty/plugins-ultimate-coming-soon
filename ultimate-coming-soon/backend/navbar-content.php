@@ -214,6 +214,13 @@ $active_tab = isset( $_POST['active_tab'] ) ? sanitize_text_field( wp_unslash( $
                 // Update the countdown timer status option
                 if (isset($_POST['wpucs_countdown_timer_status'])) {
                 update_option('wpucs_countdown_timer_status', sanitize_text_field(wp_unslash($_POST['wpucs_countdown_timer_status'])));}
+
+                if (isset($_POST['wpucs_countdown_message_status'])) {
+                update_option('wpucs_countdown_message_status', sanitize_text_field(wp_unslash($_POST['wpucs_countdown_message_status'])));}
+
+                if (isset($_POST['wpucs_countdown_finishing_text'])) {
+                update_option('wpucs_countdown_finishing_text', sanitize_text_field(wp_unslash($_POST['wpucs_countdown_finishing_text'])));}
+
                 if (isset($_POST['wpucs_countdown_date'])) {
                 update_option('wpucs_countdown_date', sanitize_text_field(wp_unslash($_POST['wpucs_countdown_date'])));}
 

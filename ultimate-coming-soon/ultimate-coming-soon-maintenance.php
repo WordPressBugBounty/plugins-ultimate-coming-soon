@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Ultimate Coming Soon & Maintenance 
  * Description: Coming Soon & Maintenance Mode Plugin For WordPress. Hide your website until it’s ready. 
- * Version: 1.1.1
+ * Version: 1.1.2
  * Author URI: http://rstheme.com
  * Plugin URI: https://wordpress.org/plugins/ultimate-coming-soon/
  * Author: RSTheme
@@ -17,7 +17,7 @@
 defined('ABSPATH') or die('Hey, what are you doing here? You silly human!');
 
 // Define Custom Constant Variables
-define('UCSM_VERSION_LITE', '1.1.1');
+define('UCSM_VERSION_LITE', '1.1.2');
 define('UCSM_PLUGIN_DIR_LITE', plugin_dir_path(__FILE__));
 define('UCSM_PLUGIN_URL_LITE', plugin_dir_url(__FILE__));
 define('UCSM_FILE_LITE', __FILE__);
@@ -82,7 +82,8 @@ function ucsm_admin_notice_lite() {
     if ($screen->base !== 'dashboard') {
         return;
     }
-    ?>
+    $wpucs_ads = get_option('wpucs_ads');
+    if ($wpucs_ads == 'on') {?>
     <div class="ucsm-admin-notice notice notice-success is-dismissible">
         <p>
             <?php esc_html_e('Get up to', 'ultimate-coming-soon'); ?>
@@ -94,9 +95,12 @@ function ucsm_admin_notice_lite() {
             <?php esc_html_e('Discover Themes Now', 'ultimate-coming-soon'); ?>
         </a>
     </div>
+
     <?php
+    }
 }
 add_action('admin_notices', 'ucsm_admin_notice_lite');
+
 
 // Enqueue custom styles for the admin notice
 function ucsm_enqueue_admin_main_styles($hook) {

@@ -63,3 +63,21 @@
     </div>
 </fieldset>
 <!-- Enable/Disable Switch -->
+
+<fieldset style="margin-bottom: 30px;">
+    <legend><?php esc_html_e('Dashboard Ads Status', 'ultimate-coming-soon'); ?></legend>
+
+    <div class="row">
+        <!-- Administrator -->
+        <div class="col-lg-2">
+            <div class="checkbox wpucs-switch-common-pro">
+                <div class="wpucs-md-switch-pro">
+                    <input id="wpucs_ads" class="switch" type="checkbox"
+                        name="wpucs_ads" <?php checked($wpucs_ads, 'on'); ?>>
+                    <label for="wpucs_ads"></label>
+                    <span class="switch-note-pro"><?php esc_html_e('Ads', 'ultimate-coming-soon'); ?></span>
+                </div>
+            </div>
+        </div>
+    </div>
+</fieldset>

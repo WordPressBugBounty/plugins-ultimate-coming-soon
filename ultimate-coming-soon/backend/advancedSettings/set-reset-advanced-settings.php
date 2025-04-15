@@ -7,6 +7,7 @@ $wpucs_editor = get_option('wpucs_editor', 'off');
 $wpucs_author = get_option('wpucs_author', 'off');
 $wpucs_contributor = get_option('wpucs_contributor', 'off');
 $wpucs_subscriber = get_option('wpucs_subscriber', 'off');
+$wpucs_ads = get_option('wpucs_ads', 'on');
 
 // Check if the form was submitted
 if (isset($_POST['wpucs_settings_submit_tab_pro'])) {
@@ -20,6 +21,7 @@ if (isset($_POST['wpucs_settings_submit_tab_pro'])) {
         $wpucs_author = isset($_POST['wpucs_author']) ? 'on' : 'off';
         $wpucs_contributor = isset($_POST['wpucs_contributor']) ? 'on' : 'off';
         $wpucs_subscriber = isset($_POST['wpucs_subscriber']) ? 'on' : 'off';
+        $wpucs_ads = isset($_POST['wpucs_ads']) ? 'on' : 'off';
 
         // Save the updated values
         update_option('wpucs_administrator', $wpucs_administrator);
@@ -27,6 +29,7 @@ if (isset($_POST['wpucs_settings_submit_tab_pro'])) {
         update_option('wpucs_author', $wpucs_author);
         update_option('wpucs_contributor', $wpucs_contributor);
         update_option('wpucs_subscriber', $wpucs_subscriber);
+        update_option('wpucs_ads', $wpucs_ads);
 
         // Provide feedback to the user
         ?>
@@ -52,6 +55,7 @@ if (isset($_POST['wpucs_settings_reset_tab_pro'])) {
     $wpucs_author = 'off';
     $wpucs_contributor = 'off';
     $wpucs_subscriber = 'off';
+    $wpucs_ads = 'on';
 
     // Save the default values
     update_option('wpucs_administrator', $wpucs_administrator);
@@ -59,6 +63,7 @@ if (isset($_POST['wpucs_settings_reset_tab_pro'])) {
     update_option('wpucs_author', $wpucs_author);
     update_option('wpucs_contributor', $wpucs_contributor);
     update_option('wpucs_subscriber', $wpucs_subscriber);
+    update_option('wpucs_ads', $wpucs_ads);
 
     // Provide a success message for the reset
     ?>

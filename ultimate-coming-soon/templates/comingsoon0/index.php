@@ -192,7 +192,14 @@
                         </span>
                     </div>
                 </div>
+                <?php if ($wpucs_countdown_message_status === 'on') { ?>
+                    <div id="countdown-finished-message" style="display: none;">
+                        <p class="ucsm-countdown-message" style="color: #fff; font-size: 20px;font-family: 'inter-regular';">
+                            <?php echo wp_kses_post($wpucs_countdown_finishing_text); ?>
+                        </p>
+                    </div>
                 <?php } ?>
+            <?php } ?>
                 <!--End Countdown Timer -->
                 <!-- NewsLetter -->
                 <?php if ($wpucs_newsletter_status === 'on') { ?>
@@ -276,19 +283,23 @@
         <!-- UpdateCountdown JS -->
     <script>
         function updateCountdown() {
+            var countdownDateElement = document.getElementById("countdown_date");
+            var countdownDate = countdownDateElement ? countdownDateElement.textContent.trim() : "";
 
-            // Get the countdown date from the PHP variable
-            var countdownDate = "<?php echo esc_attr($wpucs_countdown_date); ?>";
-            // Set the countdown target time
+            if (!countdownDate) return;
+
             var targetDate = new Date(countdownDate).getTime();
             var now = new Date().getTime();
             var timeDifference = targetDate - now;
-            // Get the countdown section element
+
             var countdownSection = document.getElementById("countdown-section");
-            // Check if timeDifference is less than 0
-            if (timeDifference < 0) {
-                // If timeDifference is less than 0, hide the countdown section
-                countdownSection.style.display = "none";
+            var finishedMessage = document.getElementById("countdown-finished-message");
+
+            if (timeDifference <= 0) {
+                if (countdownSection) countdownSection.style.display = "none";
+                if (finishedMessage) finishedMessage.style.display = "block";
+                clearInterval(window.countdownInterval); // stop updates
+                return;
             }
 
             const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));

@@ -72,6 +72,8 @@
 	$wpucs_contact_info_background = get_option('wpucs_contact_info_background', '');
 	//Countdown Timer
 	$wpucs_countdown_timer_status = get_option('wpucs_countdown_timer_status', '');
+	$wpucs_countdown_message_status = get_option('wpucs_countdown_message_status', '');
+	$wpucs_countdown_finishing_text = get_option('wpucs_countdown_finishing_text', '');
 	$wpucs_time_zone = get_option('wpucs_time_zone', 'UTC');
 	$wpucs_export_format = get_option('wpucs_export_format', '');
 	$wpucs_countdown_settings_type = get_option('wpucs_countdown_settings_type','');

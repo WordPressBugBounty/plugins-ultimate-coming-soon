@@ -35,8 +35,40 @@
         <span id="wpucs-error-message-pro" class="wpucs-error-message-pro"
               style="display: none;"><?php esc_html_e('Countdown date cannot be from the previous day!', 'ultimate-coming-soon'); ?></span>
     </p>
-    <!--========= End Set Your Website Publishing Date =========-->
 
+    <!--=========  Set After Finishing Countdown=========-->
+    <div class="wpucs-radio-status-lite">
+    <h4 class="ucsm_title"><?php esc_html_e('After Finishing Countdown', 'ultimate-coming-soon'); ?></h4>
+        <div class="wpucs-radio-box-lite">
+            <div class="wpucs-radio-item-lite">
+                <input id="wpucs_countdown_timer_message_enable" type="radio" name="wpucs_countdown_message_status"
+                       value="on" <?php checked($wpucs_countdown_message_status, 'on'); ?> onchange="toggleCountdownMessage()">
+                <label for="wpucs_countdown_timer_message_enable">
+                    <div class="wpucs-dot-icon-pro"></div>
+                    <span><?php esc_html_e('Add Message', 'ultimate-coming-soon'); ?></span>
+                </label>
+            </div>
+            <div class="wpucs-radio-item-lite">
+                <input id="wpucs_countdown_timer_removecountdown_disable" type="radio" name="wpucs_countdown_message_status"
+                       value="off" <?php checked($wpucs_countdown_message_status, 'off'); ?> onchange="toggleCountdownMessage()">
+                <label for="wpucs_countdown_timer_removecountdown_disable">
+                    <div class="wpucs-dot-icon-pro"></div>
+                    <span><?php esc_html_e('Remove Countdown Message', 'ultimate-coming-soon'); ?></span>
+                </label>
+            </div>
+        </div>
+    </div>
+
+    <!-- =================Days Text================= -->
+    
+    <p class="wpucs-countdown-message-wrapper">
+        <label for="wpucs_countdown_finishing_text"><?php esc_html_e('Message:', 'ultimate-coming-soon'); ?></label>
+        <input type="text" id="wpucs_countdown_finishing_text" name="wpucs_countdown_finishing_text"
+            value="<?php echo esc_attr($wpucs_countdown_finishing_text); ?>">
+    </p>
+
+    
+    <!-- =================End Days Text================= -->
     <!-- ==========Save/Reset Settings Button========== -->
     <?php include UCSM_PLUGIN_DIR_LITE . 'backend/buttonS.php'; ?>
     <!-- ========== End Save/Reset Settings Button========== -->

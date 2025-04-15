@@ -154,6 +154,7 @@
                 <!-- End Description Text -->
                 <!-- Countdown Timer -->
                 <?php if ($wpucs_countdown_timer_status === 'on') { ?>
+                    <div id="countdown_date" style="display: none;"><?php echo wp_kses_post($wpucs_countdown_date); ?> </div>
                     <div class="ucsm-countdown" id="ucsm-countdown-section">
                         <div class="ucsm-countdown-item-lite">
                             <span class="ucsm-countdown-number-lite" id="days">
@@ -184,6 +185,13 @@
                             </span>
                         </div>
                     </div>
+                    <?php if ($wpucs_countdown_message_status === 'on') { ?>
+                    <div id="countdown-finished-message" style="display: none;">
+                        <p class="ucsm-countdown-message" style="color: #fff; font-size: 20px;font-family: 'inter-regular';">
+                            <?php echo wp_kses_post($wpucs_countdown_finishing_text); ?>
+                        </p>
+                    </div>
+                <?php } ?>
                 <?php } ?>
                 <!--End Countdown Timer -->
 
@@ -228,33 +236,37 @@
     <!-- UpdateCountdown JS -->
     <script>
         function updateCountdown() {
+            var countdownDateElement = document.getElementById("countdown_date");
+            var countdownDate = countdownDateElement ? countdownDateElement.textContent.trim() : "";
 
-                // Get the countdown date from the PHP variable
-                var countdownDate = "<?php echo esc_attr($wpucs_countdown_date); ?>";
-                // Set the countdown target time
-                var targetDate = new Date(countdownDate).getTime();
-                var now = new Date().getTime();
-                var timeDifference = targetDate - now;
-                // Get the countdown section element
-                var countdownSection = document.getElementById("countdown-section");
-                // Check if timeDifference is less than 0
-                if (timeDifference < 0) {
-                    // If timeDifference is less than 0, hide the countdown section
-                    countdownSection.style.display = "none";
-                }
+            if (!countdownDate) return;
 
-                const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
-                const hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
-                const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
+            var targetDate = new Date(countdownDate).getTime();
+            var now = new Date().getTime();
+            var timeDifference = targetDate - now;
 
-                document.getElementById("days").textContent = days < 10 ? `0${days}` : days;
-                document.getElementById("hours").textContent = hours < 10 ? `0${hours}` : hours;
-                document.getElementById("minutes").textContent = minutes < 10 ? `0${minutes}` : minutes;
-                document.getElementById("seconds").textContent = seconds < 10 ? `0${seconds}` : seconds;
+            var countdownSection = document.getElementById("ucsm-countdown-section");
+            var finishedMessage = document.getElementById("countdown-finished-message");
+
+            if (timeDifference <= 0) {
+                if (countdownSection) countdownSection.style.display = "none";
+                if (finishedMessage) finishedMessage.style.display = "block";
+                clearInterval(window.countdownInterval); // stop updates
+                return;
             }
-            updateCountdown();
-            setInterval(updateCountdown, 1000);
+
+            const days = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((timeDifference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((timeDifference % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((timeDifference % (1000 * 60)) / 1000);
+
+            document.getElementById("days").textContent = days < 10 ? `0${days}` : days;
+            document.getElementById("hours").textContent = hours < 10 ? `0${hours}` : hours;
+            document.getElementById("minutes").textContent = minutes < 10 ? `0${minutes}` : minutes;
+            document.getElementById("seconds").textContent = seconds < 10 ? `0${seconds}` : seconds;
+        }
+        updateCountdown();
+        setInterval(updateCountdown, 1000);
     </script>
     <!-- End updateCountdown JS -->
 </body>

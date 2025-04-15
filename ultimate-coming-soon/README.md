@@ -6,13 +6,13 @@
 **Author URI:** http://rstheme.com 
 **Contributors:** rstheme2017, rubrash
 **Tags:** maintenance mode, coming soon, landing page, under construction, countdown   
-**Version:** 1.1.1
+**Version:** 1.1.2
 **License:** GPLv2 or later
 **License URI:** http://www.gnu.org/licenses/gpl-2.0.html 
-**Stable tag:** 1.1.1
+**Stable tag:** 1.1.2
 **Tested up to:** 6.7.2
-**Requires PHP:** 7.0.0
-**Requires at least:** 5.5
+**Requires PHP:** 7.4
+**Requires at least:** 6.3
 
 Best Coming Soon, Under Construction, Maintenance Mode, and Landing Page for your website get advanced features for free.
 
@@ -160,6 +160,12 @@ Pay as You Use: Pay only for the duration you use the plugin.
 
 **[Ultimate Team Showcase – Advanced WordPress Team Members Plugin](https://wordpress.org/plugins/ultimate-team-showcase/)** - The ultimate team member WordPress plugin for showing team members profile in grid, slider, Isotope, and lightbox layouts easily using by shortcodes.
 
+**[Fancy Post Grid – Ultimate Post Grid Builder Plugin](https://wordpress.org/plugins/fancy-post-grid/)** - Elegant, responsive WordPress plugin for stylish post grids, sliders, lists, and isotope layouts.
+
+**[Ultimate Tag Cloud Elementor Addon](https://wordpress.org/plugins/ultimate-tag-cloud/)** - Ultimate Tag Cloud enhances tag display with dynamic loading, custom addons, Elementor integration, and stylish layouts for better taxonomy organization.
+
+**[Ultimate Redirect Manager](https://wordpress.org/plugins/ultimate-redirect-manager/)** - Redirect users based on 404 errors, manage 301 & 302 redirects, track 404 errors, and optimize your website.
+
 = Author =
 
 Designed and Developed with ♥ by [__RSTheme__](https://rstheme.com/)
@@ -167,8 +173,8 @@ Designed and Developed with ♥ by [__RSTheme__](https://rstheme.com/)
 
 == Requirements ==
 
-`WordPress version at least: 4.5` 
-`PHP version at least: 7.0`
+`WordPress version at least: 6.3` 
+`PHP version at least: 7.4`
 
 
 == Frequently Asked Questions ==
@@ -250,6 +256,13 @@ Maintenance Mode: Inform users that your site is temporarily down for maintenanc
 
 
 ## Changelog ##
+
+= 1.1.2 13-04-2025 =
+
+* Compatible with your version of WordPress
+* After Finishing Countdown Option
+* Browser Cache updated
+* Ads Button Upgraded 
 
 = 1.1.1 18-02-2025 =
 
