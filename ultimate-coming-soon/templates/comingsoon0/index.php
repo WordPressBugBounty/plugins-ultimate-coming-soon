@@ -1,4 +1,8 @@
 <?php if ( ! defined( 'ABSPATH' ) ) exit;
+// Force enable admin bar for logged-in users
+if ( is_user_logged_in() ) {
+    add_filter( 'show_admin_bar', '__return_true' );
+}
     require_once UCSM_PLUGIN_DIR_LITE .'backend/essential-variables.php';
     // Get the plugin version
     // Enqueue styles and scripts
@@ -92,22 +96,34 @@
     <div class="wpucs-container"
         style=" background-color: <?php echo wp_kses_post($wpucs_background_color_rgba); ?>;  background-image: url('<?php echo esc_url($wpucs_background_image); ?>'); background-size: cover; background-position: center; background-repeat: no-repeat; min-height: 100vh;">
         <!-- Header Top Bar -->
-        <div class="ucsm-header-top-bar-pro">
+        
+        <div class="ucsm-header-top-bar-pro <?php 
+            if ( $wpucs_logo_setup === 'text' ) { 
+                echo esc_attr( $wpucs_text_logo_align ); 
+            } elseif ( $wpucs_logo_setup === 'graphic' || $wpucs_logo_setup === 'disable' ) { 
+                echo ''; 
+            } 
+        ?>">
             <!-- Logo Setup -->
             <?php if ($wpucs_logo_setup === 'text') { ?>
-            <div class="ucsm-header-textlogo-lite">
+            <div class="ucsm-header-textlogo-lite " style=" order:<?php echo wp_kses_post($wpucs_order_logo); ?>;">
                 <a href="<?php echo esc_url($wpucs_website_url); ?>"
-                    style="color: #fff;font-weight: 700; text-decoration: none; font-size: 60px;font-family: 'inter-bold';">
+                    style="color: #fff;font-weight: 700; text-decoration: none; font-size:<?php echo intval($wpucs_text_logo_size); ?>px; font-family: 'inter-bold';">
                     <?php echo wp_kses_post($wpucs_website_text_logo); ?>
                 </a>
             </div>
             <?php } ?>
+            
             <?php if ($wpucs_logo_setup === 'graphic') { ?>
-            <div class="ucsm-header-logo-lite">
-                <a href="<?php echo esc_url($wpucs_website_url); ?>"><img src="<?php echo wp_kses_post($wpucs_website_logo); ?>" alt="Coming Soon Image">
-                </a>
-            </div>
+                <div class="ucsm-header-logo-lite " style=" order:<?php echo wp_kses_post($wpucs_order_logo); ?>;">
+                    <a href="<?php echo esc_url($wpucs_website_url); ?>">
+                        <img src="<?php echo esc_url($wpucs_website_logo); ?>" 
+                            alt="<?php esc_attr_e('Coming Soon Logo', 'ultimate-coming-soon'); ?>"
+                            style="<?php if (!empty($wpucs_logo_width)) : ?> width:<?php echo intval($wpucs_logo_width); ?>px; <?php endif; ?><?php if (!empty($wpucs_logo_height)) : ?> height:<?php echo intval($wpucs_logo_height); ?>px; <?php endif; ?> max-width:100%;">
+                    </a>
+                </div>
             <?php } ?>
+
             <?php if ($wpucs_logo_setup === 'disabled') { ?>
             <div class="ucsm-header-logo-lite">
 
@@ -116,7 +132,7 @@
             <!-- End Logo Setup -->
 
             <!-- Social -->
-            <div class="ucsm-header-social-lite">
+            <div class="ucsm-header-social-lite" style=" order:<?php echo wp_kses_post($wpucs_order_social); ?>;">
                 <ul>
                     <?php foreach ($social_links_order as $platform) : ?>
                         <?php if (!empty($social_links[$platform]) && isset($platforms[$platform])) : ?>
@@ -135,15 +151,15 @@
         <!-- Main Content -->
         <div class="ucsm-content">
             <!-- Heading Text -->
-            <h1 class="ucsm-heading" style="color: #fff ;font-family: 'inter-bold';">
+            <h1 class="ucsm-heading" style="color: #fff ;font-family: 'inter-bold'; order:<?php echo wp_kses_post($wpucs_order_heading); ?>;">
                 <?php echo wp_kses_post($wpucs_main_heading); ?> 
-                <span style="color: #FFC75C;"><?php echo wp_kses_post($wpucs_sub_heading); ?>                   
+                <span style="color: #FFC75C;order:<?php echo wp_kses_post($wpucs_order_subheading); ?>;"><?php echo wp_kses_post($wpucs_sub_heading); ?>                   
                 </span>
             </h1>
             <!--End Heading Text -->
             
             <!-- Description Text -->
-            <p class="ucsm-description" style="color: #fff; font-size: 20px;font-family: 'inter-regular';">
+            <p class="ucsm-description" style="color: #fff; font-size: 20px;font-family: 'inter-regular'; order:<?php echo wp_kses_post($wpucs_order_description); ?>;">
                 <?php echo wp_kses_post($wpucs_main_description); ?>   
             </p>
             <!-- End Description Text -->
@@ -153,7 +169,7 @@
 
                 <div id="countdown_date" style="display: none;"><?php echo wp_kses_post($wpucs_countdown_date); ?> </div>
                 
-                <div class="ucsm-countdown" id="countdown-section">
+                <div class="ucsm-countdown" id="countdown-section" style=" order:<?php echo wp_kses_post($wpucs_order_countdown); ?>;">
                     <div class="ucsm-countdown-item-lite">
                         <span class="ucsm-countdown-number-lite" id="days"
                             style="background-color: #EF4222;  color: #fff; height: 120px; width: 120px; border-radius: 5%; font-size: 50px;">
@@ -203,7 +219,7 @@
                 <!--End Countdown Timer -->
                 <!-- NewsLetter -->
                 <?php if ($wpucs_newsletter_status === 'on') { ?>
-                    <form>
+                    <form style=" order:<?php echo wp_kses_post($wpucs_order_newsletter); ?>;">
                         <div class="ucsm-form-box">
                             <input type="text" placeholder="Email Address">
                             <button type="submit"><?php esc_html_e('Subscribe', 'ultimate-coming-soon'); ?></button>
@@ -215,7 +231,7 @@
         <!-- End Main Content -->
 
         <!-- Contact Info  -->
-        <div class="ucsm-contact-info-lite">
+        <div class="ucsm-contact-info-lite" style=" order:<?php echo wp_kses_post($wpucs_order_contact); ?>;">
             <ul>
                 <?php if (!empty($wpucs_cf_address)): ?>
                 <li>

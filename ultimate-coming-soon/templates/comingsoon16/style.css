@@ -8,7 +8,9 @@ body {
     font-family: 'OpenSans';
     background-color: #f7f7f7;
 }
-
+html {
+    margin-top: 0 !important;
+}
 .ucsm-container {
     display: flex;
     flex-direction: column;
@@ -23,7 +25,18 @@ body {
     width: 300px;
     margin: 0 auto;
 }
-
+.ucsm-header-textlogo-lite{
+    width: 100%;
+}
+.ucsm-header-textlogo-lite.align-left{
+    text-align: left;
+}
+.ucsm-header-textlogo-lite.align-center{
+    text-align: center;
+}
+.ucsm-header-textlogo-lite.align-right{
+    text-align: right;
+}
 .ucsm-header-logo-lite img{
     max-height: 70px;
     max-width: 100%;
@@ -32,6 +45,8 @@ body {
 .ucsm-content {
     text-align: center;
     padding-top: 50px;
+    display: flex;
+    flex-direction: column;
 }
 
 .ucsm-heading {

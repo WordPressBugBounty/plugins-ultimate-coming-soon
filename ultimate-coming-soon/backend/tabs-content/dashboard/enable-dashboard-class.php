@@ -48,7 +48,6 @@
     </div>
 </fieldset>
 
-
 <fieldset style="margin-bottom: 30px; padding-bottom: 15px;">
     <legend><?php esc_html_e('Mode Setup', 'ultimate-coming-soon'); ?></legend>
 
@@ -112,3 +111,86 @@
     <!--======================== END Mode Setup Status ========================-->
 </fieldset>
 <!--========= END Enable Coming Soon & Maintenance Mode =========-->
+
+<!-- ========= Item Ordering ========= -->
+<fieldset style="margin-bottom: 30px; padding-bottom: 15px;">
+    <legend><?php esc_html_e('Item Ordering', 'ultimate-coming-soon'); ?></legend>
+    <p><?php esc_html_e('Set display order for each section (lower number = higher priority).', 'ultimate-coming-soon'); ?></p>
+    
+    <div class="row">
+        <!-- Logo -->
+        <div class="col-lg-3">
+            <p>
+            <label for="wpucs_order_logo"><?php esc_html_e('Logo', 'ultimate-coming-soon'); ?></label>
+            <input type="text" id="wpucs_order_logo" name="wpucs_order_logo" 
+                value="<?php echo esc_attr($wpucs_order_logo); ?>" min="1" max="20">
+            </p>
+        </div>
+
+        <!-- Heading -->
+        <div class="col-lg-3">
+            <p>
+            <label for="wpucs_order_heading"><?php esc_html_e('Heading', 'ultimate-coming-soon'); ?></label>
+            <input type="text" id="wpucs_order_heading" name="wpucs_order_heading" 
+                value="<?php echo esc_attr($wpucs_order_heading); ?>" min="1" max="20">
+            </p>
+        </div>
+
+        <!-- Sub Heading -->
+        <div class="col-lg-3">
+            <p>
+            <label for="wpucs_order_subheading"><?php esc_html_e('Sub Heading', 'ultimate-coming-soon'); ?></label>
+            <input type="text" id="wpucs_order_subheading" name="wpucs_order_subheading" 
+                value="<?php echo esc_attr($wpucs_order_subheading); ?>" min="1" max="20">
+            </p>
+        </div>
+
+        <!-- Description -->
+        <div class="col-lg-3">
+            <p>
+            <label for="wpucs_order_description"><?php esc_html_e('Description', 'ultimate-coming-soon'); ?></label>
+            <input type="text" id="wpucs_order_description" name="wpucs_order_description" 
+                value="<?php echo esc_attr($wpucs_order_description); ?>" min="1" max="20">
+            </p>
+        </div>
+
+    </div>
+
+    <div class="row" style="margin-top:15px;">
+        <!-- Social -->
+        <div class="col-lg-3">
+            <p>
+            <label for="wpucs_order_social"><?php esc_html_e('Social', 'ultimate-coming-soon'); ?></label>
+            <input type="text" id="wpucs_order_social" name="wpucs_order_social" 
+                value="<?php echo esc_attr($wpucs_order_social); ?>" min="1" max="20">
+            </p>
+        </div>
+
+        <!-- Contact -->
+        <div class="col-lg-3">
+            <p>
+            <label for="wpucs_order_contact"><?php esc_html_e('Contact', 'ultimate-coming-soon'); ?></label>
+            <input type="text" id="wpucs_order_contact" name="wpucs_order_contact" 
+                value="<?php echo esc_attr($wpucs_order_contact); ?>" min="1" max="20">
+            </p>
+        </div>
+
+        <!-- Newsletter -->
+        <div class="col-lg-3">
+            <p>
+            <label for="wpucs_order_newsletter"><?php esc_html_e('Newsletter', 'ultimate-coming-soon'); ?></label>
+            <input type="text" id="wpucs_order_newsletter" name="wpucs_order_newsletter" 
+                value="<?php echo esc_attr($wpucs_order_newsletter); ?>" min="1" max="20">
+            </p>
+        </div>
+
+        <!-- Countdown -->
+        <div class="col-lg-3">
+            <p>
+                <label for="wpucs_order_countdown"><?php esc_html_e('Countdown', 'ultimate-coming-soon'); ?></label>
+                <input type="text" id="wpucs_order_countdown" name="wpucs_order_countdown" 
+                    value="<?php echo esc_attr($wpucs_order_countdown); ?>" min="1" max="20">
+            </p>
+        </div>
+    </div>
+</fieldset>

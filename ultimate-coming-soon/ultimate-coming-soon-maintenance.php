@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Ultimate Coming Soon & Maintenance 
  * Description: Coming Soon & Maintenance Mode Plugin For WordPress. Hide your website until it’s ready. 
- * Version: 1.1.2
+ * Version: 1.1.3
  * Author URI: http://rstheme.com
  * Plugin URI: https://wordpress.org/plugins/ultimate-coming-soon/
  * Author: RSTheme
@@ -10,14 +10,14 @@
  * License URI:http://www.gnu.org/licenses/gpl-2.0.txt
  * Text Domain: ultimate-coming-soon
  * Domain Path: /languages
- * Requires PHP: 7.0.0
- * Requires at least: 5.5
+ * Requires PHP: 7.4
+ * Requires at least: 6.3
  */
 
 defined('ABSPATH') or die('Hey, what are you doing here? You silly human!');
 
 // Define Custom Constant Variables
-define('UCSM_VERSION_LITE', '1.1.2');
+define('UCSM_VERSION_LITE', '1.1.3');
 define('UCSM_PLUGIN_DIR_LITE', plugin_dir_path(__FILE__));
 define('UCSM_PLUGIN_URL_LITE', plugin_dir_url(__FILE__));
 define('UCSM_FILE_LITE', __FILE__);
@@ -101,7 +101,6 @@ function ucsm_admin_notice_lite() {
 }
 add_action('admin_notices', 'ucsm_admin_notice_lite');
 
-
 // Enqueue custom styles for the admin notice
 function ucsm_enqueue_admin_main_styles($hook) {
     // Only load on the Dashboard
@@ -110,7 +109,7 @@ function ucsm_enqueue_admin_main_styles($hook) {
     }
     
     // Enqueue custom admin notice styles
-    wp_enqueue_style('ucsm-admin-notice-style', UCSM_PLUGIN_URL_LITE . 'assets/css/admin-notice.css', array(), '1.1.1', 'all');
-    wp_enqueue_style('ucsm-font-family', UCSM_PLUGIN_URL_LITE . 'assets/css/wpucs_font_family_frontend.css', array(), '1.1.1');
+    wp_enqueue_style('ucsm-admin-notice-style', UCSM_PLUGIN_URL_LITE . 'assets/css/admin-notice.css', array(), '1.1.3', 'all');
+    wp_enqueue_style('ucsm-font-family', UCSM_PLUGIN_URL_LITE . 'assets/css/wpucs_font_family_frontend.css', array(), '1.1.3');
 }
 add_action('admin_enqueue_scripts', 'ucsm_enqueue_admin_main_styles');

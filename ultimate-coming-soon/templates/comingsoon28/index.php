@@ -90,22 +90,33 @@
     <div class="ucsm-container"
         style=" background-color: <?php echo wp_kses_post($wpucs_background_color_rgba); ?>;  background-image: url('<?php echo esc_url($wpucs_background_image); ?>'); background-size: cover; background-position: center; background-repeat: no-repeat; min-height: 100vh;">
         <!-- Header Top Bar -->
-        <div class="ucsm-header-top-bar-pro">
+        <div class="ucsm-header-top-bar-pro <?php 
+            if ( $wpucs_logo_setup === 'text' ) { 
+                echo esc_attr( $wpucs_text_logo_align ); 
+            } elseif ( $wpucs_logo_setup === 'graphic' || $wpucs_logo_setup === 'disable' ) { 
+                echo ''; 
+            } 
+        ?>">
             <!-- Logo Setup -->
             <?php if ($wpucs_logo_setup === 'text') { ?>
-            <div class="ucsm-header-textlogo-lite">
+            <div class="ucsm-header-textlogo-lite " style=" order:<?php echo wp_kses_post($wpucs_order_logo); ?>;">
                 <a href="<?php echo esc_url($wpucs_website_url); ?>"
-                    style="color: #fff;font-weight: 700; text-decoration: none; font-size: 60px;font-family: 'inter-bold';">
+                    style="color: #fff;font-weight: 700; text-decoration: none; font-size:<?php echo intval($wpucs_text_logo_size); ?>px; font-family: 'inter-bold';">
                     <?php echo wp_kses_post($wpucs_website_text_logo); ?>
                 </a>
             </div>
             <?php } ?>
+            
             <?php if ($wpucs_logo_setup === 'graphic') { ?>
-            <div class="ucsm-header-logo-lite">
-                <a href="<?php echo esc_url($wpucs_website_url); ?>"><img src="<?php echo wp_kses_post($wpucs_website_logo); ?>" alt="Coming Soon Image">
-                </a>
-            </div>
+                <div class="ucsm-header-logo-lite " style=" order:<?php echo wp_kses_post($wpucs_order_logo); ?>;">
+                    <a href="<?php echo esc_url($wpucs_website_url); ?>">
+                        <img src="<?php echo esc_url($wpucs_website_logo); ?>" 
+                            alt="<?php esc_attr_e('Coming Soon Logo', 'ultimate-coming-soon'); ?>"
+                            style="<?php if (!empty($wpucs_logo_width)) : ?> width:<?php echo intval($wpucs_logo_width); ?>px; <?php endif; ?><?php if (!empty($wpucs_logo_height)) : ?> height:<?php echo intval($wpucs_logo_height); ?>px; <?php endif; ?> max-width:100%;">
+                    </a>
+                </div>
             <?php } ?>
+
             <?php if ($wpucs_logo_setup === 'disabled') { ?>
             <div class="ucsm-header-logo-lite">
 
@@ -114,13 +125,13 @@
             <!-- End Logo Setup -->
 
             <!-- Social -->
-            <div class="ucsm-header-social-lite">
+            <div class="ucsm-header-social-lite" style=" order:<?php echo wp_kses_post($wpucs_order_social); ?>;">
                 <ul>
                     <?php foreach ($social_links_order as $platform) : ?>
                         <?php if (!empty($social_links[$platform]) && isset($platforms[$platform])) : ?>
                             <li>
                                 <a href="<?php echo esc_url($social_links[$platform]); ?>" >
-                                    <i class="ri-<?php echo esc_attr($platforms[$platform]); ?>" style=" color:white ; font-size: 20px;"></i>
+                                    <i class="ri-<?php echo esc_attr($platforms[$platform]); ?>" style=" color:white ; font-size: 20px; "></i>
                                 </a>
                             </li>
                         <?php endif; ?>
@@ -129,19 +140,20 @@
             </div>
             <!-- End Social -->
         </div>
+        
         <!-- End Header Top Bar -->
         <!-- Main Content -->
         <div class="ucsm-content">
             <!-- Heading Text -->
-            <h1 class="ucsm-heading" style="color: #fff ;font-family: 'urbanist-extrabold';">
+            <h1 class="ucsm-heading" style="order:<?php echo wp_kses_post($wpucs_order_heading); ?>; color: #fff ;font-family: 'urbanist-extrabold';">
                 <?php echo wp_kses_post($wpucs_main_heading); ?> 
             </h1>
             <!--End Heading Text -->
 
-            <h3 style="font-size: 42px; color: #fff ;font-family: 'urbanist-bold'; margin: 37px 0 50px; "><?php echo wp_kses_post($wpucs_sub_heading); ?></h3>
+            <h3 style="order:<?php echo wp_kses_post($wpucs_order_subheading); ?>; font-size: 42px; color: #fff ;font-family: 'urbanist-bold'; margin: 37px 0 50px; "><?php echo wp_kses_post($wpucs_sub_heading); ?></h3>
             
             <!-- Description Text -->
-            <p class="ucsm-description" style="color: #fff; font-size: 22px;line-height:36px;font-family: 'urbanist-semibold';">
+            <p class="ucsm-description" style=" order:<?php echo wp_kses_post($wpucs_order_description); ?>; color: #fff; font-size: 22px;line-height:36px;font-family: 'urbanist-semibold';">
                 <?php echo wp_kses_post($wpucs_main_description); ?>   
             </p>
             <!-- End Description Text -->

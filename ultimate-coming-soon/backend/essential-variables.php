@@ -11,6 +11,15 @@
 	$wpucs_website_text_logo = get_option('wpucs_website_text_logo', '');
 	$wpucs_logo_setup = get_option('wpucs_logo_setup', '');
 	$wpucs_website_url = get_option('wpucs_website_url', '');
+
+	$wpucs_order_logo = get_option('wpucs_order_logo', '');
+	$wpucs_order_heading = get_option('wpucs_order_heading', '');
+	$wpucs_order_subheading = get_option('wpucs_order_subheading', '');
+	$wpucs_order_description = get_option('wpucs_order_description', '');
+	$wpucs_order_social = get_option('wpucs_order_social', '');
+	$wpucs_order_contact = get_option('wpucs_order_contact', '');
+	$wpucs_order_newsletter = get_option('wpucs_order_newsletter', '');
+	$wpucs_order_countdown = get_option('wpucs_order_countdown', '');
 	//SEO
 	$wpucs_seo_title = get_option('wpucs_seo_title', '');
 	$wpucs_seo_description = get_option('wpucs_seo_description', '');
@@ -18,6 +27,11 @@
 	$wpucs_google_analytics = get_option('wpucs_google_analytics', '');
 	$wpucs_favicon = get_option('wpucs_favicon', '');
 	$wpucs_seo_img = get_option('wpucs_seo_img', '');
+	$wpucs_text_logo_size = get_option('wpucs_text_logo_size', '');
+	$wpucs_text_logo_align = get_option('wpucs_text_logo_align', '');
+	$wpucs_logo_width = get_option('wpucs_logo_width', '');
+	$wpucs_logo_height = get_option('wpucs_logo_height', '');
+	
 	$wpucs_sub_heading = get_option('wpucs_sub_heading', '');
 	$wpucs_sub_heading_color = get_option('wpucs_sub_heading_color', '');
 	$wpucs_sub_heading_font_size = get_option('wpucs_sub_heading_font_size', '');

@@ -64,15 +64,39 @@
                 <!-- =====================Coming Soon Text Logo====================== -->
                 <div id="wpucs_text_logo_fields"
                     <?php echo ($wpucs_logo_setup === 'text') ? 'style="display:block;"' : 'style="display:none;"'; ?>>
+                    
                     <p>
                         <label for="wpucs_website_text_logo"><?php esc_html_e('UCSM Text Logo:', 'ultimate-coming-soon'); ?></label>
                         <input type="text" id="wpucs_website_text_logo" name="wpucs_website_text_logo"
                             value="<?php echo esc_attr($wpucs_website_text_logo); ?>">
                     </p>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <p class="wpucs-rangebox-pro">
+                                <label for="wpucs_text_logo_align"><?php esc_html_e('Text Logo Alignment:', 'ultimate-coming-soon'); ?></label>
+                                <select id="wpucs_text_logo_align" name="wpucs_text_logo_align">
+                                    <option value="align-left" <?php selected($wpucs_text_logo_align, 'align-left'); ?>><?php esc_html_e('Left', 'ultimate-coming-soon'); ?></option>
+                                    <option value="align-center" <?php selected($wpucs_text_logo_align, 'align-center'); ?>><?php esc_html_e('Center', 'ultimate-coming-soon'); ?></option>
+                                    <option value="align-right" <?php selected($wpucs_text_logo_align, 'align-right'); ?>><?php esc_html_e('Right', 'ultimate-coming-soon'); ?></option>
+                                </select>
+                            </p>
+
+                        </div>
+                        <div class="col-lg-6">
+                            <p>
+                                <label for="wpucs_text_logo_size"><?php esc_html_e('Logo Font Size (px):', 'ultimate-coming-soon'); ?></label>
+                                <input type="text" id="wpucs_text_logo_size" name="wpucs_text_logo_size"
+                                    value="<?php echo esc_attr( ! empty( $wpucs_text_logo_size ) ? $wpucs_text_logo_size : 45 ); ?>"  min="1" max="200" step="1">
+                            </p>
+                        </div>
+                        
+                    </div>
                 </div>
+
                 <!-- ========= End Coming Soon Text Logo =============== -->
 
                 <!-- ========= Coming Soon Graphic Logo =============== -->
+
                 <div class="wpucs-image-box-lite" id="wpucs_logo_container"
                     <?php echo ($wpucs_logo_setup === 'graphic') ? 'style="display:block;"' : 'style="display:none;"'; ?>>
                     <label for="wpucs_website_logo"><?php esc_html_e('UCSM Graphic Logo:', 'ultimate-coming-soon'); ?></label>
@@ -88,6 +112,28 @@
                         <span class="wpucs-close-button-lite" id="wpucs_website_logo_close_button"
                             data-field-id="wpucs_website_logo"></span>
 
+                    </div>
+
+                    <!-- New Controls -->
+                    <div class="row">
+                        
+                        <div class="col-lg-6">
+                            <p>
+                                <label for="wpucs_logo_width"><?php esc_html_e('Logo Width (px):', 'ultimate-coming-soon'); ?></label>
+                                <input type="text" id="wpucs_logo_width" name="wpucs_logo_width"
+                                    value="<?php echo esc_attr( ! empty( $wpucs_logo_width ) ? $wpucs_logo_width : 300 ); ?>"
+                                    min="1" max="300" step="1">
+                            </p>
+                        </div>
+
+                        <div class="col-lg-6">
+                            <p>
+                                <label for="wpucs_logo_height"><?php esc_html_e('Logo Height (px):', 'ultimate-coming-soon'); ?></label>
+                                <input type="text" id="wpucs_logo_height" name="wpucs_logo_height"
+                                    value="<?php echo esc_attr( ! empty( $wpucs_logo_height ) ? $wpucs_logo_height : 70 ); ?>"
+                                    min="1" max="70" step="1">
+                            </p>
+                        </div>
                     </div>
                 </div>
                 <!-- ========= End Coming Soon Graphic Logo =============== -->

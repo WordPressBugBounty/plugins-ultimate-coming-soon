@@ -6,11 +6,11 @@
 **Author URI:** http://rstheme.com 
 **Contributors:** rstheme2017, rubrash
 **Tags:** maintenance mode, coming soon, landing page, under construction, countdown   
-**Version:** 1.1.2
+**Version:** 1.1.3
 **License:** GPLv2 or later
 **License URI:** http://www.gnu.org/licenses/gpl-2.0.html 
-**Stable tag:** 1.1.2
-**Tested up to:** 6.7.2
+**Stable tag:** 1.1.3
+**Tested up to:** 6.8
 **Requires PHP:** 7.4
 **Requires at least:** 6.3
 
@@ -257,6 +257,14 @@ Maintenance Mode: Inform users that your site is temporarily down for maintenanc
 
 ## Changelog ##
 
+= 1.1.3 20-08-2025 =
+
+* Compatible with your version of WordPress
+* Bug Fixing
+* Update font family
+* Add Tex Logo Font Size, Alignment,Graphic Logo Height,Width
+* Add Item Ordering
+
 = 1.1.2 13-04-2025 =
 
 * Compatible with your version of WordPress
@@ -345,5 +353,3 @@ Maintenance Mode: Inform users that your site is temporarily down for maintenanc
 = 1.0.0  15-02-2024 =
 
 * Initial release
-
-

@@ -2,6 +2,7 @@
 
 require_once UCSM_PLUGIN_DIR_LITE .'functions/default-data.php';
 
+
 $active_tab = isset( $_GET['tab'] ) ? sanitize_text_field( wp_unslash( $_GET['tab'] ) ) : 'dashboard-lite';
 
 if (isset($_POST['ucsm_display_activation_notice_lite'])) {
@@ -31,7 +32,32 @@ $active_tab = isset( $_POST['active_tab'] ) ? sanitize_text_field( wp_unslash( $
                     }
                 } else {
                     update_option('wpucs_enable_mode', false);
-                }        
+                } 
+
+                if (isset($_POST['wpucs_order_logo'])) {
+                    update_option('wpucs_order_logo', sanitize_text_field(wp_unslash($_POST['wpucs_order_logo'])));
+                } 
+                if (isset($_POST['wpucs_order_heading'])) {
+                    update_option('wpucs_order_heading', sanitize_text_field(wp_unslash($_POST['wpucs_order_heading'])));
+                } 
+                if (isset($_POST['wpucs_order_subheading'])) {
+                    update_option('wpucs_order_subheading', sanitize_text_field(wp_unslash($_POST['wpucs_order_subheading'])));
+                } 
+                if (isset($_POST['wpucs_order_description'])) {
+                    update_option('wpucs_order_description', sanitize_text_field(wp_unslash($_POST['wpucs_order_description'])));
+                } 
+                if (isset($_POST['wpucs_order_social'])) {
+                    update_option('wpucs_order_social', sanitize_text_field(wp_unslash($_POST['wpucs_order_social'])));
+                } 
+                if (isset($_POST['wpucs_order_contact'])) {
+                    update_option('wpucs_order_contact', sanitize_text_field(wp_unslash($_POST['wpucs_order_contact'])));
+                }
+                if (isset($_POST['wpucs_order_newsletter'])) {
+                    update_option('wpucs_order_newsletter', sanitize_text_field(wp_unslash($_POST['wpucs_order_newsletter'])));
+                } 
+                if (isset($_POST['wpucs_order_countdown'])) {
+                    update_option('wpucs_order_countdown', sanitize_text_field(wp_unslash($_POST['wpucs_order_countdown'])));
+                }       
             } else {
                 // Nonce verification failed. You can handle the error or log it.
                 // Display an error message or take appropriate action.
@@ -109,12 +135,25 @@ $active_tab = isset( $_POST['active_tab'] ) ? sanitize_text_field( wp_unslash( $
                     if (isset($_POST['wpucs_website_text_logo'])) {
                         update_option('wpucs_website_text_logo', sanitize_text_field(wp_unslash($_POST['wpucs_website_text_logo'])));
                     }
+                    if (isset($_POST['wpucs_text_logo_size'])) {
+                        update_option('wpucs_text_logo_size', sanitize_text_field(wp_unslash($_POST['wpucs_text_logo_size'])));
+                    }
+                    if (isset($_POST['wpucs_text_logo_align'])) {
+                        update_option('wpucs_text_logo_align', sanitize_text_field(wp_unslash($_POST['wpucs_text_logo_align'])));
+                    }
                 }
 
                 if (isset($_POST['wpucs_logo_setup']) && $_POST['wpucs_logo_setup'] === 'graphic') {
                     if (isset($_POST['wpucs_website_logo'])) {
                         update_option('wpucs_website_logo', esc_url(sanitize_text_field(wp_unslash($_POST['wpucs_website_logo']))));
                     }
+                    if (isset($_POST['wpucs_logo_height'])) {
+                        update_option('wpucs_logo_height', sanitize_text_field(wp_unslash($_POST['wpucs_logo_height'])));
+                    }
+                    if (isset($_POST['wpucs_logo_width'])) {
+                        update_option('wpucs_logo_width', sanitize_text_field(wp_unslash($_POST['wpucs_logo_width'])));
+                    }
+                    
                 }
 
                 if (isset($_POST['wpucs_favicon'])) {    

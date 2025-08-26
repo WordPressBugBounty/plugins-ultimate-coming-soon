@@ -92,27 +92,42 @@
         <div class="ucsm-container">
             
             <!-- Header Top Bar -->
-            <div class="ucsm-header-top-bar-pro">
+            
+            <div class="ucsm-header-top-bar-pro <?php 
+                if ( $wpucs_logo_setup === 'text' ) { 
+                    echo esc_attr( $wpucs_text_logo_align ); 
+                } elseif ( $wpucs_logo_setup === 'graphic' || $wpucs_logo_setup === 'disable' ) { 
+                    echo ''; 
+                } ?>">    
                 <!-- Logo Setup -->
                 <?php if ($wpucs_logo_setup === 'text') { ?>
-                    <div class="ucsm-header-textlogo-lite">
-                        <a href="<?php echo esc_url($wpucs_website_url); ?>"style="color: #fff;font-weight: 700; text-decoration: none; font-size: 60px;font-family: 'inter-bold';"><?php echo wp_kses_post($wpucs_website_text_logo); ?></a>
+                    <div class="ucsm-header-textlogo-lite " style=" order:<?php echo wp_kses_post($wpucs_order_logo); ?>;">
+                        <a href="<?php echo esc_url($wpucs_website_url); ?>"
+                            style="color: #fff;font-weight: 700; text-decoration: none; font-size:<?php echo intval($wpucs_text_logo_size); ?>px; font-family: 'inter-bold';">
+                            <?php echo wp_kses_post($wpucs_website_text_logo); ?>
+                        </a>
                     </div>
-                    <?php } ?>
-                    <?php if ($wpucs_logo_setup === 'graphic') { ?>
-                    <div class="ucsm-header-logo-lite">
-                        <a href="<?php echo esc_url($wpucs_website_url); ?>"><img
-                                src="<?php echo wp_kses_post($wpucs_website_logo); ?>" alt="Coming Soon Image"></a>
+                <?php } ?>
+                
+                <?php if ($wpucs_logo_setup === 'graphic') { ?>
+                    <div class="ucsm-header-logo-lite " style=" order:<?php echo wp_kses_post($wpucs_order_logo); ?>;">
+                        <a href="<?php echo esc_url($wpucs_website_url); ?>">
+                            <img src="<?php echo esc_url($wpucs_website_logo); ?>" 
+                                alt="<?php esc_attr_e('Coming Soon Logo', 'ultimate-coming-soon'); ?>"
+                                style="<?php if (!empty($wpucs_logo_width)) : ?> width:<?php echo intval($wpucs_logo_width); ?>px; <?php endif; ?><?php if (!empty($wpucs_logo_height)) : ?> height:<?php echo intval($wpucs_logo_height); ?>px; <?php endif; ?> max-width:100%;">
+                        </a>
                     </div>
-                    <?php } ?>
-                    <?php if ($wpucs_logo_setup === 'disabled') { ?>
+                <?php } ?>
+
+                <?php if ($wpucs_logo_setup === 'disabled') { ?>
                     <div class="ucsm-header-logo-lite">
 
                     </div>
                 <?php } ?>
                 <!-- End Logo Setup -->
+
                 <!-- contact -->
-                <div class="ucsm-contact-info-lite">
+                <div class="ucsm-contact-info-lite" style=" order:<?php echo wp_kses_post($wpucs_order_contact); ?>;">
                     <ul>
                         <?php if (!empty($wpucs_cf_contact_no)): ?>
                         <li>
@@ -142,20 +157,20 @@
             <!-- Main Content -->
             <div class="ucsm-content">
                 <!-- Heading Text -->
-                <h1 class="ucsm-heading">
+                <h1 class="ucsm-heading" style="order:<?php echo wp_kses_post($wpucs_order_heading); ?>;">
                     <?php echo wp_kses_post($wpucs_main_heading); ?>
-                    <span><?php echo wp_kses_post($wpucs_sub_heading); ?></span>
+                    <span style="order:<?php echo wp_kses_post($wpucs_order_subheading); ?>;"><?php echo wp_kses_post($wpucs_sub_heading); ?></span>
                 </h1>
                 <!--End Heading Text -->
                 <!-- Description Text -->
-                <p class="ucsm-description"> <?php echo wp_kses_post($wpucs_main_description); ?>
+                <p class="ucsm-description" style="order:<?php echo wp_kses_post($wpucs_order_description); ?>;"> <?php echo wp_kses_post($wpucs_main_description); ?>
                     
                 </p>
                 <!-- End Description Text -->
                 <!-- Countdown Timer -->
                 <?php if ($wpucs_countdown_timer_status === 'on') { ?>
                     <div id="countdown_date" style="display: none;"><?php echo wp_kses_post($wpucs_countdown_date); ?> </div>
-                    <div class="ucsm-countdown" id="ucsm-countdown-section">
+                    <div class="ucsm-countdown" id="ucsm-countdown-section"  style=" order:<?php echo wp_kses_post($wpucs_order_countdown); ?>;" >
                         <div class="ucsm-countdown-item-lite">
                             <span class="ucsm-countdown-number-lite" id="days">
                                 00</span>
@@ -186,18 +201,18 @@
                         </div>
                     </div>
                     <?php if ($wpucs_countdown_message_status === 'on') { ?>
-                    <div id="countdown-finished-message" style="display: none;">
-                        <p class="ucsm-countdown-message" style="color: #fff; font-size: 20px;font-family: 'inter-regular';">
-                            <?php echo wp_kses_post($wpucs_countdown_finishing_text); ?>
-                        </p>
-                    </div>
-                <?php } ?>
+                        <div id="countdown-finished-message" style="display: none;">
+                            <p class="ucsm-countdown-message" style="color: #fff; font-size: 20px;font-family: 'inter-regular';">
+                                <?php echo wp_kses_post($wpucs_countdown_finishing_text); ?>
+                            </p>
+                        </div>
+                    <?php } ?>
                 <?php } ?>
                 <!--End Countdown Timer -->
 
                 <!-- NewsLetter -->
                 <?php if ($wpucs_newsletter_status === 'on') { ?>
-                    <form>
+                    <form style=" order:<?php echo wp_kses_post($wpucs_order_newsletter); ?>;">
                         <div class="ucsm-form-box">
                             <input type="text" placeholder="Email Address">
                             <button type="submit"><?php esc_html_e('Subscribe', 'ultimate-coming-soon'); ?></button>
@@ -207,7 +222,7 @@
                 <!-- End NewsLetter -->
                 
                 <!-- Social -->
-                <div class="ucsm-social-box-lite">
+                <div class="ucsm-social-box-lite" style=" order:<?php echo wp_kses_post($wpucs_order_social); ?>;">
                     <ul>
                         <?php foreach ($social_links_order as $platform) : ?>
                             <?php if (!empty($social_links[$platform]) && isset($platforms[$platform])) : ?>

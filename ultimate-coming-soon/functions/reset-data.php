@@ -96,7 +96,7 @@ ucsm_save_activated_template_id_lite($activatedTemplateId);
           $site_title = get_bloginfo('name');
           $site_icon_url = get_site_icon_url();
           update_option('wpucs_website_text_logo', $site_title);
-          update_option('wpucs_logo_setup', 'text');
+          update_option('wpucs_logo_setup', 'disabled');
               
           // Website Logo
           if ($site_icon_url) {

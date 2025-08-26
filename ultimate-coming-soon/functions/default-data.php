@@ -12,7 +12,7 @@ function ucsm_update_default_values_based_on_template_once_lite($activatedTempla
       update_option('wpucs_main_description', 'We will let you know when we are Launching');
       
       //Appearance
-      update_option('wpucs_logo_setup', 'text');
+      update_option('wpucs_logo_setup', 'disabled');
       update_option('wpucs_background_image', UCSM_PLUGIN_URL_LITE.'assets/img/background/background-0.jpg');
       update_option('wpucs_background_color', '#0f44ae');
       update_option('wpucs_background_color_rgba', 'rgb(15, 68, 174)');
