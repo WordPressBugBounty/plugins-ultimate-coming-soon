@@ -121,7 +121,7 @@
                             <p>
                                 <label for="wpucs_logo_width"><?php esc_html_e('Logo Width (px):', 'ultimate-coming-soon'); ?></label>
                                 <input type="text" id="wpucs_logo_width" name="wpucs_logo_width"
-                                    value="<?php echo esc_attr( ! empty( $wpucs_logo_width ) ? $wpucs_logo_width : 300 ); ?>"
+                                    value="<?php echo esc_attr( ! empty( $wpucs_logo_width ) ? $wpucs_logo_width : '' ); ?>"
                                     min="1" max="300" step="1">
                             </p>
                         </div>
@@ -130,7 +130,7 @@
                             <p>
                                 <label for="wpucs_logo_height"><?php esc_html_e('Logo Height (px):', 'ultimate-coming-soon'); ?></label>
                                 <input type="text" id="wpucs_logo_height" name="wpucs_logo_height"
-                                    value="<?php echo esc_attr( ! empty( $wpucs_logo_height ) ? $wpucs_logo_height : 70 ); ?>"
+                                    value="<?php echo esc_attr( ! empty( $wpucs_logo_height ) ? $wpucs_logo_height : '' ); ?>"
                                     min="1" max="70" step="1">
                             </p>
                         </div>

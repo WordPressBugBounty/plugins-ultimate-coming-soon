@@ -25,7 +25,7 @@ function ucsm_update_default_values_based_on_template_once_lite($activatedTempla
       update_option('wpucs_countdown_timer_status', 'on');
       update_option('wpucs_countdown_message_status', 'on');
       update_option('wpucs_countdown_finishing_text', 'Stay tuned for updates!');
-      update_option('wpucs_countdown_date', '2025-12-31T12:00');
+      update_option('wpucs_countdown_date', '2026-02-28T12:00');
 
       //SEO
       $site_title = get_bloginfo('name');

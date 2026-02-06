@@ -88,7 +88,7 @@
 <body>
     <!--  Container    -->
     <div class="ucsm-container"
-        style=" background-color: <?php echo wp_kses_post($wpucs_background_color_rgba); ?>;  background-image: url('<?php echo esc_url($wpucs_background_image); ?>'); background-size: cover; background-position: center; background-repeat: no-repeat;">
+        style=" background-color: <?php echo wp_kses_post($wpucs_background_color_rgba); ?>;  background-image: url('<?php echo esc_url($wpucs_background_image); ?>'); background-size: cover; background-position: center; background-repeat: no-repeat; min-height: 100vh;">
         <!-- Header Top Bar -->
         <div class="ucsm-header-top-bar-pro <?php 
             if ( $wpucs_logo_setup === 'text' ) { 

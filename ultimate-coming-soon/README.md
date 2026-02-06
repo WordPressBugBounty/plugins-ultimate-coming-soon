@@ -6,10 +6,10 @@
 **Author URI:** http://rstheme.com 
 **Contributors:** rstheme2017, rubrash
 **Tags:** maintenance mode, coming soon, landing page, under construction, countdown   
-**Version:** 1.1.3
+**Version:** 1.1.4
 **License:** GPLv2 or later
 **License URI:** http://www.gnu.org/licenses/gpl-2.0.html 
-**Stable tag:** 1.1.3
+**Stable tag:** 1.1.4
 **Tested up to:** 6.8
 **Requires PHP:** 7.4
 **Requires at least:** 6.3
@@ -256,6 +256,17 @@ Maintenance Mode: Inform users that your site is temporarily down for maintenanc
 
 
 ## Changelog ##
+
+= 1.1.4 26-11-2025 =
+
+* Compatible with your version of WordPress
+* Add Ordering System
+* Add Subscription Form Fields 7 Dynamic Values
+* Add Subscription Button Fields 5 Dynamic Values
+* Design Update 3 templates
+* Responsive Design
+* Tab Issue Solved
+* Bug Fixes
 
 = 1.1.3 20-08-2025 =
 

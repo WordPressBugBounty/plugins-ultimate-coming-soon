@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Ultimate Coming Soon & Maintenance 
  * Description: Coming Soon & Maintenance Mode Plugin For WordPress. Hide your website until it’s ready. 
- * Version: 1.1.3
+ * Version: 1.1.4
  * Author URI: http://rstheme.com
  * Plugin URI: https://wordpress.org/plugins/ultimate-coming-soon/
  * Author: RSTheme
@@ -17,7 +17,7 @@
 defined('ABSPATH') or die('Hey, what are you doing here? You silly human!');
 
 // Define Custom Constant Variables
-define('UCSM_VERSION_LITE', '1.1.3');
+define('UCSM_VERSION_LITE', '1.1.4');
 define('UCSM_PLUGIN_DIR_LITE', plugin_dir_path(__FILE__));
 define('UCSM_PLUGIN_URL_LITE', plugin_dir_url(__FILE__));
 define('UCSM_FILE_LITE', __FILE__);
@@ -109,7 +109,7 @@ function ucsm_enqueue_admin_main_styles($hook) {
     }
     
     // Enqueue custom admin notice styles
-    wp_enqueue_style('ucsm-admin-notice-style', UCSM_PLUGIN_URL_LITE . 'assets/css/admin-notice.css', array(), '1.1.3', 'all');
-    wp_enqueue_style('ucsm-font-family', UCSM_PLUGIN_URL_LITE . 'assets/css/wpucs_font_family_frontend.css', array(), '1.1.3');
+    wp_enqueue_style('ucsm-admin-notice-style', UCSM_PLUGIN_URL_LITE . 'assets/css/admin-notice.css', array(), '1.1.4', 'all');
+    wp_enqueue_style('ucsm-font-family', UCSM_PLUGIN_URL_LITE . 'assets/css/wpucs_font_family_frontend.css', array(), '1.1.4');
 }
 add_action('admin_enqueue_scripts', 'ucsm_enqueue_admin_main_styles');

@@ -143,6 +143,7 @@
         
         <!-- End Header Top Bar -->
         <!-- Main Content -->
+         <div class="ucsm-content-wrapper">
         <div class="ucsm-content">
             <!-- Heading Text -->
             <h1 class="ucsm-heading" style="order:<?php echo wp_kses_post($wpucs_order_heading); ?>; color: #fff ;font-family: 'urbanist-extrabold';">
@@ -162,6 +163,7 @@
         <div class="shape-image">
             <img src="<?php echo esc_url($wpucs_shape_overlay); ?>" alt="">
         </div>
+         </div>
         <div class="ucsm-copyright">
             <p><?php esc_html_e('Powered By', 'ultimate-coming-soon'); ?> <a target="__blank" href="https://rstheme.com/"><?php esc_html_e('RSTheme', 'ultimate-coming-soon'); ?></a></p>
         </div>

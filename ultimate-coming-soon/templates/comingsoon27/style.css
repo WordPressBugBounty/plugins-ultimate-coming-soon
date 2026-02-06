@@ -1,7 +1,6 @@
 body {
     margin: 0;
     padding: 0;
-    font-family: 'OpenSans';
     
 }
 p.ucsm-description {
@@ -15,7 +14,6 @@ html {
     flex-direction: column;
     justify-content: flex-end;
     align-items: center;
-    height: 100vh;
 }
 
 .ucsm-content {
@@ -23,17 +21,16 @@ html {
     max-width: 1680px;
     display: flex;
     flex-direction: column;
+    padding-top: 80px;
+    padding-bottom: 30px;
 }
 
 .ucsm-header-top-bar-pro {
-    position: absolute;
-    top: 40px;
-    left: 0;
-    right: 0;
-    padding: 0 100px;
+    padding: 40px 100px 0;
     display: flex;
     align-items: center;
     justify-content: center;
+    width: 100%;
 }
 .ucsm-header-top-bar-pro.align-left{
     justify-content: flex-start;
@@ -51,6 +48,7 @@ html {
     display: flex;
     align-items: center;
     justify-content: center;
+    gap: 30px;
 }
 
 .ucsm-header-logo-lite {
@@ -64,11 +62,6 @@ html {
 }
 
 .ucsm-content .ucsm-header-social-lite ul li a {
-    display: inline-block;
-    margin: 0 5px;
-    height: 40px;
-    width: 40px;
-    border-radius: 50%;
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -82,7 +75,7 @@ html {
 
 .ucsm-heading {
     font-size: 100px;
-    line-height: 100px;
+    line-height: 1;
     font-weight: 700;
     color: #000000;
     margin: 0 29px;
@@ -92,7 +85,6 @@ html {
     font-size: 20px;
     color: #ffffff;
     margin: 36px 0 30px;
-    font-family: 'inter-regular';
 }
 
 .ucsm-form-box {
@@ -108,7 +100,6 @@ html {
     font-size: 17px;
     color: #000;
     margin-bottom: 0 !important;
-    font-family: 'inter-regular';
 
 }
 
@@ -133,7 +124,6 @@ html {
     color: #fff;
     cursor: pointer;
     transition: all 0.3s ease;
-    font-family: 'inter-semibold';
 }
 
 .ucsm-form-box button:hover{
@@ -151,7 +141,6 @@ html {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-family: 'inter-semibold';
 }
 
 .ucsm-countdown .ucsm-countdown-item-lite .ucsm-countdown-label-lite {
@@ -159,8 +148,6 @@ html {
     font-weight: 500;
     display: inline-block;
     margin-top: 13px;
-    font-family: 'inter-semibold';
-
 }
 
 .ucsm-contact-info-lite {
@@ -179,8 +166,6 @@ html {
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    font-family: 'inter-regular';
-
 }
 
 .ucsm-contact-info-lite ul li p{
@@ -231,12 +216,12 @@ html {
     text-align: center;
     width: 100%;
     border-top: 1px solid #0000002f;
+    padding: 20px 15px;
 }
 
 .ucsm-copyright p{
     color: #000;
-    margin: 20px 0; 
-    font-family: 'inter-semibold';
+    margin:  0;
 }
 
 .ucsm-copyright p a{
@@ -264,7 +249,7 @@ html {
     }
     .shape-image{
         width: auto;
-        padding: 0 30px 50px;
+        padding: 0 15px 50px;
     }
 }
 @media (min-width: 992px) {
@@ -276,10 +261,7 @@ html {
 
 @media (max-width: 991px) {
         .ucsm-container {
-            height: auto;
-            padding: 200px 0 0px;
             justify-content: flex-start;
-            position: relative;
         }
         
         .ucsm-contact-info-lite {
@@ -305,18 +287,16 @@ html {
         }
         .ucsm-header-textlogo-lite a{
             font-size: 40px !important;
+        }
+        .ucsm-content{
+            padding-top: 60px;
         } 
     }
     
     @media (max-width: 767px) {
         .ucsm-header-top-bar-pro {
-            padding: 0 30px;
+            padding: 40px 15px 0;
         }
-        
-        .ucsm-content {
-            max-width: inherit;
-            padding: 0 15px;
-    }
     
     .ucsm-heading {
         font-size: 36px !important;
@@ -352,15 +332,7 @@ html {
 }
 
 @media (max-width: 575px) {
-    .ucsm-header-top-bar-pro {
-        padding: 0 15px;
-        flex-direction: column;
-        top: 30px;
-    }
 
-    .ucsm-header-top-bar-pro .ucsm-header-logo-lite {
-        margin-bottom: 20px;
-    }
 
     .ucsm-heading {
         font-size: 34px;
@@ -383,9 +355,6 @@ html {
         box-sizing: border-box;
     }
 
-    .ucsm-container {
-        padding: 200px 0 0px;
-    }
 
     form#coming-soon-form-lite {
         flex-direction: column;

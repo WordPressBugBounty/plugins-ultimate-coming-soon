@@ -218,4 +218,34 @@ $proTemplateIds = array(1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 14, 15, 17, 18, 1
             }
         });
     });
+// ------------------------------
+// TEMPLATE FILTERING
+// ------------------------------
+const filterRadios = document.querySelectorAll('input[name="template-filter"]');
+const templateItems = document.querySelectorAll('.ucsm-template-grid-lite-item');
+
+filterRadios.forEach(radio => {
+    radio.addEventListener('change', function () {
+        const value = this.value;
+
+        templateItems.forEach(item => {
+            const isPro = item.classList.contains('pro');
+
+            if (value === 'all') {
+                item.style.display = 'block';
+            } 
+            else if (value === 'available') {
+                // Show only FREE templates
+                if (!isPro) item.style.display = 'block';
+                else item.style.display = 'none';
+            }
+            else if (value === 'pro') {
+                // Show only PRO templates
+                if (isPro) item.style.display = 'block';
+                else item.style.display = 'none';
+            }
+        });
+    });
+});
+
 </script>

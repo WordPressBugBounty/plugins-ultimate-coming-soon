@@ -236,12 +236,12 @@
                     </ul>
                 </div>
                 <!-- End Social -->
-                <!-- ucsm copyright -->
-                    <div class="ucsm-copyright">
-                    <p><?php esc_html_e('Powered By', 'ultimate-coming-soon'); ?> <a target="__blank" href="https://rstheme.com/"><?php esc_html_e('RSTheme', 'ultimate-coming-soon'); ?></a></p>
-                    </div>
-                <!-- End ucsm copyright -->
             </div>
+             <!-- ucsm copyright -->
+                <div class="ucsm-copyright">
+                <p><?php esc_html_e('Powered By', 'ultimate-coming-soon'); ?> <a target="__blank" href="https://rstheme.com/"><?php esc_html_e('RSTheme', 'ultimate-coming-soon'); ?></a></p>
+                </div>
+            <!-- End ucsm copyright -->
             <!-- End Main Content -->
             
         </div>

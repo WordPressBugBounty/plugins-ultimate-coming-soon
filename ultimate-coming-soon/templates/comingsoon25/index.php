@@ -108,10 +108,10 @@
                 <div class="shape-image">
                     <img src="<?php echo esc_url($wpucs_shape_overlay); ?>" alt="">
                 </div>
+            </div>
                 <!-- End image box -->
-                <div class="ucsm-copyright">
-                    <p>Powered By <a target="__blank" href="https://rstheme.com/">RSTheme</a></p>
-                </div>
+            <div class="ucsm-copyright">
+                <p>Powered By <a target="__blank" href="https://rstheme.com/">RSTheme</a></p>
             </div>
         </div>
         <!-- End Container    -->

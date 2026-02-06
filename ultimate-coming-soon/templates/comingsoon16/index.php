@@ -254,15 +254,15 @@
                             </li>
                             <?php endif; ?>
                         </ul>
-                        <!-- ucsm copyright -->
-                        <div class="ucsm-copyright">
-                            <p><?php esc_html_e('Powered By', 'ultimate-coming-soon'); ?> <a target="__blank" href="https://rstheme.com/"><?php esc_html_e('RSTheme', 'ultimate-coming-soon'); ?></a></p>
-                        </div>
-                        <!-- End ucsm copyright -->
                     </div>
                     <!-- End Contact Info  -->
                 </div>
                 <!-- End Main Content -->
+                <!-- ucsm copyright -->
+                    <div class="ucsm-copyright">
+                        <p><?php esc_html_e('Powered By', 'ultimate-coming-soon'); ?> <a target="__blank" href="https://rstheme.com/"><?php esc_html_e('RSTheme', 'ultimate-coming-soon'); ?></a></p>
+                    </div>
+                <!-- End ucsm copyright -->
             </div>
         </div>
         <!-- End Container    -->
