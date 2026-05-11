@@ -1,177 +1,179 @@
-<?php if ( ! defined( 'ABSPATH' ) ) exit;
-    require_once UCSM_PLUGIN_DIR_LITE .'backend/essential-variables.php';
-    // Enqueue styles and scripts
-    add_action('wp_enqueue_scripts', 'ucsm_enqueue_assets');
+<?php if (! defined('ABSPATH')) exit;
+require_once UCS_ROOT_DIR . 'backend/essential-variables.php';
+// Enqueue styles and scripts
+add_action('wp_enqueue_scripts', 'ucsm_enqueue_assets');
 
 
-    function ucsm_enqueue_assets() {
-        $plugin_version = defined('UCSM_VERSION_LITE') ? UCSM_VERSION_LITE : '1.0.0';
-        $plugin_url = trailingslashit(UCSM_PLUGIN_URL_LITE);
+function ucsm_enqueue_assets()
+{
+  $plugin_version = defined('UCS_VERSION') ? UCS_VERSION : '1.0.0';
+  $plugin_url = trailingslashit(UCS_ROOT_URL);
 
-        // Enqueue styles
-        wp_enqueue_style('ucsm-style', $plugin_url . 'templates/comingsoon26/style.css', array(), $plugin_version);
-        wp_enqueue_style('ucsm-font-family', $plugin_url . 'assets/css/wpucs_font_family_frontend.css', array(), $plugin_version);
-        wp_enqueue_style('ucsm-remixicon', $plugin_url . 'assets/css/remixicon.css', array(), $plugin_version);
-    }
-    $social_links = get_option('wpucs_social_links', array());
-    $social_links_order = get_option('wpucs_social_links_order', array());
+  // Enqueue styles
+  wp_enqueue_style('ucsm-style', $plugin_url . 'templates/comingsoon26/style.css', array(), $plugin_version);
+  wp_enqueue_style('ucsm-font-family', $plugin_url . 'assets/css/wpucs_font_family_frontend.css', array(), $plugin_version);
+  wp_enqueue_style('ucsm-remixicon', $plugin_url . 'assets/css/remixicon.css', array(), $plugin_version);
+}
+$social_links = get_option('wpucs_social_links', array());
+$social_links_order = get_option('wpucs_social_links_order', array());
 
-    // Define an array of social platforms with their respective Remix icons
-    $platforms = array(
-        'facebook' => 'facebook-fill',
-        'twitter' => 'twitter-fill',
-        'instagram' => 'instagram-fill',
-        'youtube' => 'youtube-fill',
-        'linkedin' => 'linkedin-fill',
-        'pinterest' => 'pinterest-fill',
-        'snapchat' => 'snapchat-fill',
-        'tiktok' => 'tiktok-fill',
-        'reddit' => 'reddit-fill',
-        'tumblr' => 'tumblr-fill',
-        'whatsapp' => 'whatsapp-fill',
-        'telegram' => 'telegram-fill',
-        'wechat' => 'wechat-fill',
-        'flickr' => 'flickr-fill',
-        'behance' => 'behance-fill',
-        'dribbble' => 'dribbble-fill',
-        'vimeo' => 'vimeo-fill',
-        'soundcloud' => 'soundcloud-fill',
-        'xing' => 'xing-fill',
-        'github' => 'github-fill',
-        'spotify' => 'spotify-fill',
-        'wordpress' => 'wordpress-fill',
-        'discord' => 'discord-fill',
-        'twitch' => 'twitch-fill',
-        'line' => 'line-fill',
-    );
+// Define an array of social platforms with their respective Remix icons
+$platforms = array(
+  'facebook' => 'facebook-fill',
+  'twitter' => 'twitter-fill',
+  'instagram' => 'instagram-fill',
+  'youtube' => 'youtube-fill',
+  'linkedin' => 'linkedin-fill',
+  'pinterest' => 'pinterest-fill',
+  'snapchat' => 'snapchat-fill',
+  'tiktok' => 'tiktok-fill',
+  'reddit' => 'reddit-fill',
+  'tumblr' => 'tumblr-fill',
+  'whatsapp' => 'whatsapp-fill',
+  'telegram' => 'telegram-fill',
+  'wechat' => 'wechat-fill',
+  'flickr' => 'flickr-fill',
+  'behance' => 'behance-fill',
+  'dribbble' => 'dribbble-fill',
+  'vimeo' => 'vimeo-fill',
+  'soundcloud' => 'soundcloud-fill',
+  'xing' => 'xing-fill',
+  'github' => 'github-fill',
+  'spotify' => 'spotify-fill',
+  'wordpress' => 'wordpress-fill',
+  'discord' => 'discord-fill',
+  'twitch' => 'twitch-fill',
+  'line' => 'line-fill',
+);
 ?>
 <!-- HTML -->
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
 <!-- Head -->
+
 <head>
-    <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="content-type" content="text/html;charset=UTF-8" />
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <?php if (!empty($wpucs_seo_title)): ?><!-- Meta Title -->
+  <?php if (!empty($wpucs_seo_title)): ?><!-- Meta Title -->
     <meta property="og:title" content="<?php echo wp_kses_post($wpucs_seo_title); ?>" />
-    <?php endif; ?>
-    
-    <?php if (!empty($wpucs_seo_description)): ?><!-- Meta Description -->
-    <meta property="og:description" content="<?php echo wp_kses_post($wpucs_seo_description); ?>" >
-    <meta name="description" content="<?php echo wp_kses_post($wpucs_seo_description); ?>">   
-    <?php endif; ?>
+  <?php endif; ?>
 
-    <?php if (!empty($wpucs_favicon)): ?><!-- Thumbnail -->
+  <?php if (!empty($wpucs_seo_description)): ?><!-- Meta Description -->
+    <meta property="og:description" content="<?php echo wp_kses_post($wpucs_seo_description); ?>">
+    <meta name="description" content="<?php echo wp_kses_post($wpucs_seo_description); ?>">
+  <?php endif; ?>
+
+  <?php if (!empty($wpucs_favicon)): ?><!-- Thumbnail -->
     <meta name="thumbnail" content="<?php echo esc_url($wpucs_favicon); ?>">
-    <?php endif; ?>
-    
-    <?php if (!empty($wpucs_seo_img)): ?><!-- Meta Image -->
+  <?php endif; ?>
+
+  <?php if (!empty($wpucs_seo_img)): ?><!-- Meta Image -->
     <meta property="og:image" content="<?php echo esc_url($wpucs_seo_img); ?>">
-    <?php endif; ?>
+  <?php endif; ?>
 
-    <?php if (!empty($wpucs_seo_meta_keywords)): ?><!-- Meta KeyWords -->
+  <?php if (!empty($wpucs_seo_meta_keywords)): ?><!-- Meta KeyWords -->
     <meta name="keywords" content="<?php echo wp_kses_post($wpucs_seo_meta_keywords); ?>">
-    <?php endif; ?>
+  <?php endif; ?>
 
-    <?php if ($ucsm_mode === 'maintenance') : ?><!-- Maintenance Mode Meta Robots -->
+  <?php if ($ucsm_mode === 'maintenance') : ?><!-- Maintenance Mode Meta Robots -->
     <meta name="robots" content="noindex, nofollow">
-    <?php endif; ?>
+  <?php endif; ?>
 
-    <?php wp_head(); ?>
+  <?php wp_head(); ?>
 </head>
 <!-- End Head -->
 <!-- Body -->
 
 <body>
-    <!--  Container    -->
-    <div class="ucsm-container"
-        style=" background-color: <?php echo wp_kses_post($wpucs_background_color_rgba); ?>;  background-image: url('<?php echo esc_url($wpucs_background_image); ?>'); background-size: cover; background-position: center; background-repeat: no-repeat; min-height: 100vh;">
-        <!-- Header Top Bar -->
-        <div class="ucsm-header-top-bar-pro <?php 
-            if ( $wpucs_logo_setup === 'text' ) { 
-                echo esc_attr( $wpucs_text_logo_align ); 
-            } elseif ( $wpucs_logo_setup === 'graphic' || $wpucs_logo_setup === 'disable' ) { 
-                echo ''; 
-            } 
-        ?>">
-            <!-- Logo Setup -->
-            <?php if ($wpucs_logo_setup === 'text') { ?>
-            <div class="ucsm-header-textlogo-lite " style=" order:<?php echo wp_kses_post($wpucs_order_logo); ?>;">
-                <a href="<?php echo esc_url($wpucs_website_url); ?>"
-                    style="color: #fff;font-weight: 700; text-decoration: none; font-size:<?php echo intval($wpucs_text_logo_size); ?>px; font-family: 'inter-bold';">
-                    <?php echo wp_kses_post($wpucs_website_text_logo); ?>
-                </a>
-            </div>
-            <?php } ?>
-            
-            <?php if ($wpucs_logo_setup === 'graphic') { ?>
-                <div class="ucsm-header-logo-lite " style=" order:<?php echo wp_kses_post($wpucs_order_logo); ?>;">
-                    <a href="<?php echo esc_url($wpucs_website_url); ?>">
-                        <img src="<?php echo esc_url($wpucs_website_logo); ?>" 
-                            alt="<?php esc_attr_e('Coming Soon Logo', 'ultimate-coming-soon'); ?>"
-                            style="<?php if (!empty($wpucs_logo_width)) : ?> width:<?php echo intval($wpucs_logo_width); ?>px; <?php endif; ?><?php if (!empty($wpucs_logo_height)) : ?> height:<?php echo intval($wpucs_logo_height); ?>px; <?php endif; ?> max-width:100%;">
-                    </a>
-                </div>
-            <?php } ?>
+  <!--  Container    -->
+  <div class="ucsm-container"
+    style=" background-color: <?php echo wp_kses_post($wpucs_background_color); ?>;  background-image: url('<?php echo esc_url($wpucs_background_image); ?>'); background-size: cover; background-position: center; background-repeat: no-repeat; min-height: 100vh;">
+    <!-- Header Top Bar -->
+    <div class="ucsm-header-top-bar-pro <?php
+                                        if ($wpucs_logo_setup === 'text') {
+                                          echo esc_attr($wpucs_text_logo_align);
+                                        } elseif ($wpucs_logo_setup === 'graphic' || $wpucs_logo_setup === 'disable') {
+                                          echo '';
+                                        }
+                                        ?>">
+      <!-- Logo Setup -->
+      <?php if ($wpucs_logo_setup === 'text') { ?>
+        <div class="ucsm-header-textlogo-lite " style=" order:<?php echo wp_kses_post($wpucs_order_logo); ?>;">
+          <a href="<?php echo esc_url($wpucs_website_url); ?>"
+            style="color: #fff;font-weight: 700; text-decoration: none; font-size:<?php echo intval($wpucs_text_logo_size); ?>px; font-family: 'inter-bold';">
+            <?php echo wp_kses_post($wpucs_website_text_logo); ?>
+          </a>
+        </div>
+      <?php } ?>
 
-            <?php if ($wpucs_logo_setup === 'disabled') { ?>
-            <div class="ucsm-header-logo-lite">
+      <?php if ($wpucs_logo_setup === 'graphic') { ?>
+        <div class="ucsm-header-logo-lite " style=" order:<?php echo wp_kses_post($wpucs_order_logo); ?>;">
+          <a href="<?php echo esc_url($wpucs_website_url); ?>">
+            <img src="<?php echo esc_url($wpucs_website_logo); ?>"
+              alt="<?php esc_attr_e('Coming Soon Logo', 'ultimate-coming-soon'); ?>"
+              style="<?php if (!empty($wpucs_logo_width)) : ?> width:<?php echo intval($wpucs_logo_width); ?>px; <?php endif; ?><?php if (!empty($wpucs_logo_height)) : ?> height:<?php echo intval($wpucs_logo_height); ?>px; <?php endif; ?> max-width:100%;">
+          </a>
+        </div>
+      <?php } ?>
 
-            </div>
-            <?php } ?>
-            <!-- End Logo Setup -->
+      <?php if ($wpucs_logo_setup === 'disabled') { ?>
+        <div class="ucsm-header-logo-lite">
 
         </div>
-        <!-- End Header Top Bar -->
-        <!-- Main Content -->
-        <div class="ucsm-content">
-            <!-- bottom content -->
-            <div class="ucsm-bottom-box" style="display:flex; align-items: flex-end;">
-                <div class="shape-image">
-                    <img src="<?php echo esc_url($wpucs_shape_overlay); ?>" alt="">
-                </div>
-                <div class="ucsm-bottom-content">                    
-                    <!-- Heading Text -->
-                    <h1 class="ucsm-heading" style="order:<?php echo wp_kses_post($wpucs_order_heading); ?>; color: #fff ;font-family: 'urbanist-extrabold';">
-                        <?php echo wp_kses_post($wpucs_main_heading); ?> 
-                        <span style="order:<?php echo wp_kses_post($wpucs_order_subheading); ?>; color: #ffffff; font-family: 'urbanist-extrabold';"><?php echo wp_kses_post($wpucs_sub_heading); ?></span>
-                    </h1>
-                    <!--End Heading Text -->
-                    <!-- Description Text -->
-                    <p class="ucsm-description" style=" order:<?php echo wp_kses_post($wpucs_order_description); ?>; color: #fff; font-size:22px; line-height:36px; font-family: 'urbanist-semibold';">
-                        <?php echo wp_kses_post($wpucs_main_description); ?>   
-                    </p>
-                    <!-- End Description Text -->
-                    <!-- Social -->
-                    <div class="ucsm-header-social-lite"style=" order:<?php echo wp_kses_post($wpucs_order_social); ?>;">
-                        <ul>
-                            <?php foreach ($social_links_order as $platform) : ?>
-                                <?php if (!empty($social_links[$platform]) && isset($platforms[$platform])) : ?>
-                                    <li>
-                                        <a href="<?php echo esc_url($social_links[$platform]); ?>" >
-                                            <i class="ri-<?php echo esc_attr($platforms[$platform]); ?>" style=" color:white ; font-size: 20px; "></i>
-                                        </a>
-                                    </li>
-                                <?php endif; ?>
-                            <?php endforeach; ?>
-                        </ul>
-                    </div>
-                    
-                    <!-- End Social -->
-                </div>
-            </div>            
-            <!-- bottom content -->
-            <div class="ucsm-copyright">
-                <p>Powered By <a target="__blank" href="https://rstheme.com/">RSTheme</a></p>
-            </div>
+      <?php } ?>
+      <!-- End Logo Setup -->
 
-        </div>
-        <!-- End Main Content -->
     </div>
-    <!-- Full Container    -->
+    <!-- End Header Top Bar -->
+    <!-- Main Content -->
+    <div class="ucsm-content">
+      <!-- bottom content -->
+      <div class="ucsm-bottom-box" style="display:flex; align-items: flex-end;">
+        <div class="shape-image">
+          <img src="<?php echo esc_url($wpucs_shape_overlay); ?>" alt="">
+        </div>
+        <div class="ucsm-bottom-content">
+          <!-- Heading Text -->
+          <h1 class="ucsm-heading" style="order:<?php echo wp_kses_post($wpucs_order_heading); ?>; color: #fff ;font-family: 'urbanist-extrabold';">
+            <?php echo wp_kses_post($wpucs_main_heading); ?>
+            <span style="order:<?php echo wp_kses_post($wpucs_order_subheading); ?>; color: #ffffff; font-family: 'urbanist-extrabold';"><?php echo wp_kses_post($wpucs_sub_heading); ?></span>
+          </h1>
+          <!--End Heading Text -->
+          <!-- Description Text -->
+          <p class="ucsm-description" style=" order:<?php echo wp_kses_post($wpucs_order_description); ?>; color: #fff; font-size:22px; line-height:36px; font-family: 'urbanist-semibold';">
+            <?php echo wp_kses_post($wpucs_main_description); ?>
+          </p>
+          <!-- End Description Text -->
+          <!-- Social -->
+          <div class="ucsm-header-social-lite" style=" order:<?php echo wp_kses_post($wpucs_order_social); ?>;">
+            <ul>
+              <?php foreach ($social_links_order as $platform) : ?>
+                <?php if (!empty($social_links[$platform]) && isset($platforms[$platform])) : ?>
+                  <li>
+                    <a href="<?php echo esc_url($social_links[$platform]); ?>">
+                      <i class="ri-<?php echo esc_attr($platforms[$platform]); ?>" style=" color:white ; font-size: 20px; "></i>
+                    </a>
+                  </li>
+                <?php endif; ?>
+              <?php endforeach; ?>
+            </ul>
+          </div>
+
+          <!-- End Social -->
+        </div>
+      </div>
+      <!-- bottom content -->
+      <div class="ucsm-copyright">
+        <p>Powered By <a target="__blank" href="https://rstheme.com/">RSTheme</a></p>
+      </div>
+
+    </div>
+    <!-- End Main Content -->
+  </div>
+  <!-- Full Container    -->
 
 
 </body>

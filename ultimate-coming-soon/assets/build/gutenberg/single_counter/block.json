@@ -1,0 +1,30 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "ultimate-coming-soon/single-counter",
+  "version": "1.0.0",
+  "title": "Single Counter",
+  "textdomain": "",
+  "editorScript": "file:./index.js",
+  "editorStyle": "",
+  "style": "file:./style-index.css",
+  "viewScript": "file:./font.js",
+  "keywords": [],
+  "attributes": {
+    "date": {
+      "type": "string",
+      "default": ""
+    },
+    "time": {
+      "type": "string",
+      "default": ""
+    },
+    "format": {
+      "type": "string",
+      "default": "seconds"
+    }
+  },
+  "supports": {
+    "html": false
+  }
+}

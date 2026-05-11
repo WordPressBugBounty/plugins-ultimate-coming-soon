@@ -1,0 +1,1 @@
+.countdown-container .rich-text [data-rich-text-placeholder]:after{content:none!important}.countdown-container .countdown-lock{pointer-events:none!important}.countdown-container.front,.countdown-container[data-show_finished_message=false] .countdown-after-message-container,.countdown-container[data-show_finished_message=true] .countdown-timer-container{display:none!important}

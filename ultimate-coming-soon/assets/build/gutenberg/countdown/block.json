@@ -1,0 +1,46 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/block.json",
+  "apiVersion": 3,
+  "name": "ultimate-coming-soon/countdown",
+  "version": "1.0.0",
+  "title": "Countdown",
+  "textdomain": "",
+  "editorScript": "file:./index.js",
+  "editorStyle": "",
+  "style": "file:./style-index.css",
+  "viewScript": "file:./front.js",
+  "keywords": [],
+  "attributes": {
+    "days_label": {
+      "type": "string",
+      "default": "Days"
+    },
+    "hours_label": {
+      "type": "string",
+      "default": "Hours"
+    },
+    "minutes_label": {
+      "type": "string",
+      "default": "Minutes"
+    },
+    "seconds_label": {
+      "type": "string",
+      "default": "Seconds"
+    },
+    "date": {
+      "type": "string",
+      "default": ""
+    },
+    "time": {
+      "type": "string",
+      "default": ""
+    },
+    "show_after_finish_message": {
+      "type": "boolean",
+      "default": false
+    }
+  },
+  "supports": {
+    "html": false
+  }
+}
