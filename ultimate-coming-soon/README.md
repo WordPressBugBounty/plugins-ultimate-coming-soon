@@ -1,6 +1,6 @@
-=== Ultimate Coming Soon & Maintenance with Gutenberg Block Builder ===
+=== Ultimate Coming Soon Page, Maintenance Mode & Under Construction – Gutenberg Block Builder & Landing Page ===
 Contributors: rstheme2017, rubrash
-Tags: coming soon, countdown, landing page, maintenance mode, under construction
+Tags: coming soon, maintenance mode, under construction, landing page, gutenberg
 Requires at least: 6.3
 Tested up to: 6.9.4
 Requires PHP: 7.4
@@ -8,98 +8,113 @@ Stable tag: 2.0.0
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
-Build stunning Coming Soon, Under Construction, Maintenance Mode, and Landing Pages using the powerful Gutenberg Block Builder — with one-click demo import and full visual control inside WordPress.
+The Ultimate Coming Soon Page, Maintenance Mode & Under Construction plugin — powered by the Gutenberg Block Builder. Create stunning Landing Pages with one-click demo import and full visual control, right inside WordPress.
 
 == Description ==
 
-[**Live Demo**](https://wpucs.com/) | [**Documentation**](https://wpucs.com/docs/rs-coming-soon-maintenance-plugin/) | [**Support**](https://rstheme.com/support) | [**Go Pro**](https://wpucs.com/#priceplan)
+[**Live Demo**](https://demo.wpucs.com) | [**Website**](https://wpucs.com) | [**Documentation**](https://wpucs.com/docs/rs-coming-soon-maintenance-plugin/) | [**Support**](https://rstheme.com/support) | [**Go Pro**](https://wpucs.com/#pricing)
 
-Are you making updates to your current website or launching a new one? There's nowhere else to look! **Ultimate Coming Soon & Maintenance with Gutenberg Block Builder** gives you full visual control over every coming soon, maintenance, and under construction page — all built natively inside the WordPress Gutenberg Block Builder with no extra page builder plugins needed.
+Are you launching a new website or working on updates behind the scenes? **Ultimate Coming Soon Page, Maintenance Mode & Under Construction** is the most complete WordPress plugin for creating beautiful pre-launch and maintenance pages — all powered by the native **Gutenberg Block Builder**, with no extra page builder plugins required.
 
-All demos have been converted to the Gutenberg Block Builder and are available for **one-click import**, so you can launch a beautiful, professional page in seconds. Simply pick a template, import it in one click, and customize every block visually — text, backgrounds, countdown timers, social icons, and more.
+Whether you need a **coming soon page** to build anticipation before launch, a **maintenance mode** page to keep visitors informed during updates, an **under construction** page while your site is being built, or a high-converting **landing page** to capture leads — this plugin handles all of it in one place, with full Gutenberg Block Builder control.
 
-After you activate the plugin, your website enters coming soon or maintenance mode, and only authorized users can access the front end. Visitors see your custom page complete with countdown timer, social icons, and your branding — all built with the native WordPress block editor.
+All templates have been converted to the Gutenberg Block Builder and are available for **one-click import**, so you can go from zero to a stunning, professional page in seconds. Pick a template, import it with one click, and customize every block visually — text, backgrounds, countdown timers, social icons, and more — all inside the WordPress editor you already know.
 
 **Learn Link:** [**How to use Coming Soon mode on WordPress?**](https://rstheme.com/how-to-use-coming-soon-mode-on-wordpress/)
 
-[youtube https://www.youtube.com/watch?v=1oYpLwYbx74]
+[**How to Import a Coming Soon Page Template From New Page Screen**](https://youtu.be/vpAaqFtTyNk)
 
-= 🆕 What's New: Gutenberg Block Builder =
+[youtube https://youtu.be/vpAaqFtTyNk]
 
-✔ **Native Gutenberg / Block Editor Builder:**
-Design your coming soon, maintenance, and under construction pages directly in the WordPress block editor. No shortcodes, no extra plugins — just the block editor you already know.
+[**How to Activate a Gutenberg Template as Coming Soon Page - WPUCS**](https://youtu.be/UkRsmoxebjo)
 
-✔ **All Demos Converted to Gutenberg:**
+[youtube https://youtu.be/UkRsmoxebjo]
+
+= 🆕 What's New in Version 2.0.0 =
+
+🧱 **Gutenberg Block Builder — Full Visual Page Control:**
+Design your coming soon page, maintenance mode page, under construction page, and landing page directly inside the native WordPress Gutenberg Block Builder. No shortcodes, no extra plugins — just the powerful block editor you already know.
+
+🔄 **All Demos Converted to Gutenberg:**
 Every template demo has been rebuilt as a native Gutenberg layout, so what you see in the preview is exactly what you get in the editor.
 
-✔ **One-Click Demo Import:**
+⚡ **One-Click Demo Import:**
 Import any of our professionally designed demo templates with a single click. Your page is ready to customize in seconds.
+
+⚛️ **Modern React-Powered Dashboard:**
+The entire plugin dashboard has been redesigned from the ground up using modern React and an AJAX-based system. The result is a fast, smooth, and responsive admin experience — settings update instantly without page reloads, making it far easier to configure and manage your coming soon or maintenance page. Everything feels snappy and intuitive, whether you're switching modes, adjusting settings, or choosing a template.
+
+📚 **Template Library with One-Click Import:**
+Browse a growing library of professionally designed, pre-made coming soon page templates right inside your WordPress dashboard. Each template is a fully built Gutenberg Block Builder layout — find the design you love, hit import, and it's instantly loaded into the Gutenberg Editor ready for your customizations. No manual setup, no copying and pasting — just a beautiful starting point tailored to your brand in seconds.
+
+🌐 **Global Page Support — Set Any Page as Your Coming Soon Page:**
+You're no longer limited to a plugin-generated page. With global page support, you can create any WordPress page, design it exactly how you want using the Gutenberg Block Builder, and assign it as your coming soon, maintenance, or under construction page. This gives you complete creative freedom and full compatibility with your existing page structure and workflow.
 
 = Core Features =
 
-✔ **Coming Soon Mode:**
+🚀 **Coming Soon Mode:**
 Show visitors a coming soon page while you build. Includes Google index permissions for SEO improvement.
 
-✔ **Maintenance Mode:**
+🔧 **Maintenance Mode:**
 Display a maintenance page when your site is temporarily down. Your website will be set to no-index in search engines during this mode.
 
-✔ **Under Construction:**
+🏗️ **Under Construction:**
 Use the Under Construction template when your site is being built. You control whether the site is indexed or no-indexed in search engines.
 
-✔ **Redirect Mode:**
+↪️ **Redirect Mode:**
 Redirect any page on your website to another URL.
 
-✔ **Activation Status:**
+🎛️ **Activation Status:**
 Activate the plugin for a specific page only, or apply it site-wide — your choice.
 
-✔ **Free and Premium Gutenberg Templates:**
+🎨 **Free and Premium Gutenberg Templates:**
 7 free templates and 22+ Pro templates — all built natively with the Gutenberg Block Builder and importable in one click. Every template is fully editable block by block inside the WordPress editor.
 
-✔ **Fully Customizable with the Block Builder:**
+✏️ **Fully Customizable with the Block Builder:**
 Tailor the look and feel to match your brand using the Gutenberg Block Builder. Change text, backgrounds, colors, and layouts effortlessly — block by block, no coding needed.
 
-✔ **Countdown Timer:**
+⏱️ **Countdown Timer:**
 Engage your audience with a countdown timer. Show visitors exactly when your site will be live or back in action.
 
-✔ **WordPress Multisite Compatibility:**
+🌍 **WordPress Multisite Compatibility:**
 Works seamlessly across single WordPress sites and multisite networks.
 
-✔ **Responsive Design:**
+📱 **Responsive Design:**
 Your page looks great on any device — desktop, tablet, or mobile.
 
-✔ **Social Media Icons:**
+📣 **Social Media Icons:**
 Add social media icons so visitors can follow your progress and updates.
 
-✔ **Works with Any WordPress Theme:**
+🎭 **Works with Any WordPress Theme:**
 Integrates smoothly with any theme you choose.
 
-✔ **SEO Options:**
+🔍 **SEO Options:**
 Set Meta Title, Meta Descriptions, and Meta Keywords to maintain visibility during maintenance. Connect with Google Analytics using G-Tag.
 
-✔ **Super Fast Performance:**
+⚡ **Super Fast Performance:**
 Optimized for performance with minimal impact on your site's loading time.
 
-✔ **Simple and Easy to Use:**
+💡 **Simple and Easy to Use:**
 No coding skills required. Design your page visually using the Gutenberg Block Builder — just drag, drop, and customize.
 
-✔ **Mobile and SEO Friendly:**
+📲 **Mobile and SEO Friendly:**
 Looks great on mobile devices, and the SEO-friendly structure ensures search engines can index it properly.
 
-✔ **Multi-Language Supported:**
+🌏 **Multi-Language Supported:**
 Reach a global audience with translation support.
 
-✔ **Priority Email Support:**
+🛟 **Priority Email Support:**
 Our support team is ready to help you promptly.
 
-✔ **Full Control Over Styling:**
+🖌️ **Full Control Over Styling:**
 Customize fonts, colors, and layout to match your brand identity.
 
-✔ **Countdown Action:**
+🎯 **Countdown Action:**
 Set a specific action to trigger when the countdown reaches zero — launch your site or reveal exciting news.
 
 = Ultimate Coming Soon & Maintenance Pro =
 
-This is the lite version of UCSM. The Pro version unlocks all features for creating stunning landing pages, coming soon pages, and maintenance mode pages — all powered by the Gutenberg Block Builder with one-click demo import and unlimited design flexibility. [**Click here to purchase UCSM Pro**](https://wpucs.com/#priceplan)
+This is the free version of **Ultimate Coming Soon Page, Maintenance Mode & Under Construction**. The Pro version unlocks the full suite of features for creating stunning coming soon pages, maintenance mode pages, under construction pages, and landing pages — all powered by the Gutenberg Block Builder with one-click demo import and unlimited design flexibility. [**Click here to purchase UCSM Pro**](https://wpucs.com/#pricing)
 
 = 🔥🔥 Pro Features =
 
@@ -186,9 +201,23 @@ Designed and Developed with ♥ by [**RSTheme**](https://rstheme.com/)
 == Frequently Asked Questions ==
 
 = 🔰 What is the purpose of this plugin? =
-The plugin serves two main purposes:
-* **Coming Soon Page:** Hide your website from public view while you work on it and build anticipation among visitors.
-* **Maintenance Mode:** Inform users that your site is temporarily down for maintenance or updates.
+**Ultimate Coming Soon Page, Maintenance Mode & Under Construction** is an all-in-one WordPress plugin with four core uses:
+* **Coming Soon Page:** Hide your website from the public while you build it and create anticipation before launch.
+* **Maintenance Mode:** Inform visitors your site is temporarily down for updates, while keeping search engines properly notified.
+* **Under Construction:** Show a professional under construction page while your site is being built.
+* **Landing Page:** Create high-converting landing pages using the Gutenberg Block Builder to capture leads and grow your audience.
+
+= 🔰 What's new in version 2.0.0? =
+Version 2.0.0 is a major milestone. The entire plugin has been re-architected from the ground up. Key highlights include a brand new React-powered dashboard with AJAX-based settings, a Template Library with one-click import, full Gutenberg Editor support for designing your coming soon page, global page support so you can assign any WordPress page as your coming soon page, and 3 new Gutenberg blocks — Countdown, Single Unit Countdown, and Newsletter.
+
+= 🔰 What is the new React dashboard and why does it matter? =
+The admin dashboard has been completely rebuilt using modern React with an AJAX-based system. This means all settings update instantly without page reloads, giving you a fast and smooth experience. Managing your coming soon page — switching modes, picking templates, adjusting settings — is now quicker and more intuitive than ever.
+
+= 🔰 How does the Template Library work? =
+The Template Library lets you browse and import professionally designed, pre-made coming soon page templates directly from your WordPress dashboard. Each template is a fully built Gutenberg Block Builder layout. Simply find a design you like, click import, and it loads straight into the Gutenberg Editor — ready for you to personalize with your own content, colors, and branding.
+
+= 🔰 What is global page support? =
+Global page support means you can assign any existing WordPress page as your coming soon, maintenance, or under construction page. You're no longer restricted to a plugin-generated page. Create and design any page using the Gutenberg Block Builder, then select it as your active coming soon page — giving you full creative freedom and seamless integration with your site's existing structure.
 
 = 🔰 Does the plugin now use the Gutenberg block editor? =
 Yes! The plugin has been fully upgraded to use the native WordPress Gutenberg block editor. All demo templates have been converted to Gutenberg layouts and can be imported with one click.
