@@ -2,9 +2,21 @@
 Contributors: rstheme2017, rubrash
 Tags: coming soon, maintenance mode, under construction, landing page, gutenberg
 Requires at least: 6.3
+<<<<<<< .mine
+Tested up to: 7.0.2
+||||||| .r3528710
+Tested up to: 6.8.5
+=======
 Tested up to: 6.9.4
+>>>>>>> .r3614643
 Requires PHP: 7.4
+<<<<<<< .mine
+Stable tag: 2.0.1
+||||||| .r3528710
+Stable tag: 1.1.4
+=======
 Stable tag: 2.0.0
+>>>>>>> .r3614643
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -284,6 +296,10 @@ Please create a Support Ticket: [**Click Here**](https://rstheme.com/support). O
 10. Maintenance Template 01 (Gutenberg)
 
 == Changelog ==
+
+= 2.0.1 – 07-20-2026 =
+* Fix minor design issues
+* Added compatibility for WordPress 7.0.2
 
 = 2.0.0 – 05-03-2026 =
 * Restructured and re-architected the entire core project

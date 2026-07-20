@@ -3,7 +3,7 @@
 /**
  * Plugin Name: Ultimate Coming Soon & Maintenance 
  * Description: Coming Soon & Maintenance Mode Plugin For WordPress. Hide your website until it’s ready. 
- * Version: 2.0.0
+ * Version: 2.0.1
  * Author URI: http://rstheme.com
  * Plugin URI: https://wordpress.org/plugins/ultimate-coming-soon/
  * Author: RSTheme
